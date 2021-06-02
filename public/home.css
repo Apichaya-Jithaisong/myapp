@@ -1,0 +1,207 @@
+/*All navba*/
+.nav-item a { 
+    margin-left: 25px; }
+.change { 
+    color: rgba(185, 179, 179, 0.637) !important; }
+.change:hover {
+    color: white !important;
+    border-bottom: 2px solid white;
+}
+.search_txt{
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.63);
+    background: none;
+    outline: none;
+    float: left;
+    color: #fff;
+    font-size: 16px;
+    transition: 0.4s;
+    width: 220px;
+    margin-right: 5px;
+}
+.hidden{
+    display: none;
+}
+#Login
+{
+    background-image: linear-gradient( 45deg, rgb(184, 40, 212) 0%, rgb(113, 36, 214) 50%, rgb(79, 15, 226) 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#SignUp
+{ 
+    color: white;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 10px;
+    border-left: 1px solid white;
+}
+/*-------------End-----------------*/
+/* Booking */
+.carousel-caption { bottom: 70px; }
+.slider-btn
+{
+    margin-top: 10px;
+    margin-left: 710px;
+}
+.slider-btn .btn 
+{
+    background-image: linear-gradient( 45deg, rgb(184, 40, 212) 0%, rgb(113, 36, 214) 50%, rgb(79, 15, 226) 100%);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+/*-------------End-----------------*/
+/*Box Office*/
+.box
+{
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+a {text-decoration: none;}
+p {font-family: 'Barlow', sans-serif;}
+.num{
+    position: absolute;
+    color: rgb(139, 4, 250);
+    margin-top: 80%;
+    margin-left: 0px;
+    font-size: 100px;
+    font-weight: bold;
+    text-shadow: 0.1em 0.1em 0.2em black; 
+}
+/*-------------End-----------------*/
+/*Background*/
+body
+{    
+    background-image: linear-gradient(270deg, #1b2735 0%, #090a0f 100%);
+}
+/*-------------End-----------------*/
+/*------------All movie and Category-----*/
+.text-shadow-1{
+    font-size: 15px; 
+    text-align: left; 
+    font-family: Arial, Helvetica, sans-serif; 
+    color: rgba(255, 255, 255, 0.664); 
+}
+.black{
+    background-color: rgba(0, 0, 0, 0.493); 
+    height: 70px; 
+    border-bottom-left-radius: 10px; 
+    border-bottom-right-radius: 10px;
+}
+#btnGroupDrop1{
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 9px;
+    width: 160px;
+    margin-left: 60px;
+}
+#btnGroupDrop1:focus{
+    box-shadow: none;
+}
+.btn-1{
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 9px;
+    width: 160px;
+    color: #fff;
+    margin-left: 10px;
+}
+.dropdown-item:hover{
+    background-color: rgba(0, 0, 0, 0.527);
+}
+/*-------------End-----------------*/
+/*----------Movie page-----------------*/
+/*-----Movie and btn------*/
+#headerMovie{
+    margin-left: 650px;
+    margin-top: 95px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+}
+.bg-image{
+    background-image: url("https://media.discordapp.net/attachments/718002735475064874/846038836034797568/3.001.jpeg?width=1191&height=670");
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.sel-btn{
+    border: 2px solid white;
+    border-radius: 9px;
+    background-color: black;
+    color: #fff;
+    width: 200px;
+    height: 45px;
+    padding: 2px;
+    padding-left: 50px;
+    margin-left: 610px;
+    margin-top: 190px;
+    font-size: 18px;
+}
+.btn-sub{
+    border: 2px solid white;
+    border-radius: 9px;
+    background-color: black;
+    color: #fff;
+    width: 45px;
+    height: 40px;
+    margin-left: 5px;
+    margin-top: 190px;
+    font-size: 18px; 
+}
+/*-------------End-----------------*/
+/*-------------cinemas-----------------*/
+.text-cin{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
+    color: #fff;
+    margin: 100px;
+    margin-left: 90px;
+}
+.cin-bb{
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.582);
+    color: #fff;
+    width: 550px;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+.mb-0{
+    font-family: 'Cinzel', serif;
+}
+.btn-sho{
+    color: #fff;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    width: 120px;
+    padding: 2px;
+}
+/*-------------End-----------------*/
+/*---------navba login-----------------*/
+#SignAs{
+    color: #fff;
+    font-size: 24px;
+    border-left: 1px solid white;
+    font-family: 'Mukta', sans-serif;
+}
+.drop{
+    color: #fff;
+}

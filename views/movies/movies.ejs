@@ -1,0 +1,42 @@
+<%- include('../partials/header.ejs') %>
+
+  <div class="container-fluid bg-image">
+    <h1 id="headerMovie" style="color: aliceblue; position: absolute;">MOVIE</h1>
+    <form method="POST" action="/movies">
+      <select name="genre" id="Genre" required class="sel-btn">
+        <option value="All-movie">All movie</option>
+        <option value="Action">Action</option>
+        <option value="Adventure">Adventure</a></option>
+        <option value="Crime">Crime</option>
+        <option value="Drama">Drama</option>
+        <option value="Horror">Horror</option>
+        <option value="Romance">Romance</option>
+        <option value="Thriller">Thriller</option>
+      </select>
+      <input type='submit' class="btn-sub">
+      <!-- <button class="btn-soon">Coming Soon</button> -->
+    </form>
+  </div>
+  <!------------------Movies---------------------->
+  <div class="container" style="width: 70%; margin-left: 13.5%; margin-top: 30px;">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+      <% Movies.forEach(function(movie){ %>
+        <div class="col" style="width: 200px; margin: 0px auto;">
+          <div class="card card-cover h-100" style="background-color: transparent; border: none; margin-top: 10px;">
+            <a href="/movies/<%= movie._id %>">
+              <div class="container" style="width: 220px;">
+                <img src="<%= movie.image %>" width="100%" height="250px" style="object-fit: cover;">
+                <div class="container black">
+                  <p class="lh-1 pt-2 text-shadow-1">
+                    <%= movie.name %>
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <%}); %>
+    </div>
+  </div>
+
+  <%- include('../partials/footer.ejs') %>

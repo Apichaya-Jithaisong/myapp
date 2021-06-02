@@ -1,0 +1,29 @@
+<script>
+    function searchUp(event){
+        const txt = document.querySelector('.search_txt');
+        const Close = document.querySelector('.close');
+        const Search = document.querySelector('.search_btn');
+        
+        txt.classList.remove('hidden');
+        Close.classList.remove('hidden');
+        Search.classList.add('hidden');
+    }
+
+    function closeUp(event){
+        const Close = document.querySelector('.close');
+        const Search = document.querySelector('.search_btn');
+        const txt = document.querySelector('.search_txt');
+
+        Close.classList.add('hidden');
+        txt.classList.add('hidden');
+        Search.classList.remove('hidden');
+    }
+
+    const searchh = document.querySelector('.search_btn');
+    searchh.addEventListener('click', searchUp);
+    const cross = document.querySelector('.close');
+    cross.addEventListener('click', closeUp);
+</script>
+
+</body>
+</html>

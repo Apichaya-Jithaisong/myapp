@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMove</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=KoHo&family=Montserrat:ital,wght@1,700&family=Pattaya&family=Patua+One&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black; height: 75px;">
+            <div class="container-fluid" style="margin-top: 10px;">
+                <a class="navbar-brand" href="/">
+                    <img src="https://media.discordapp.net/attachments/718002735475064874/845593037677920286/image0.png?width=1440&height=429" height="25px" width="95px" style="margin-left: 15px;" class="d-inline-block align-text-top">
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 400px;">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link change" aria-current="page" href="/">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link change" href="/movies" id="one">MOVIES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link change" href="/cinemas" id="two">CINEMAS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link change" href="/booking" id="tree">BOOKING</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-link">
+                    <form action="/movies/search" method="POST">
+                        <input class="search_txt hidden" type="text" name="search" placeholder="Search Movie">
+                        <ion-icon name="close-outline" class="close hidden" style="color: white; font-size: 28px;"></ion-icon>
+                    </form>
+                    <a class="search_btn" style="color: white; font-size: 22px;" ><ion-icon name="search-outline"></ion-icon></a>
+                </div>
+                <% if(!currentUser) { %>
+                    <a class="nav-link" href="/register" id="SignUp" style="font-family: 'KoHo', sans-serif;">Sign up</a> 
+                    <a class="nav-link" href="/login" id="Login" style="font-family: 'KoHo', sans-serif;">Login</a>
+                    <% } else { %>
+                        <div class="dropdown">
+                            <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="SignAs"><%= currentUser.username %></a> 
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+                                <li><a class="nav-link drop" href="" id="Profile">Profile</a></li>
+                                <li><a class="nav-link drop" href="/logout" id="LogOut">LogOut</a></li>
+                            </ul>
+                        </div>     
+                    <% } %>
+            </div>
+        </nav>
+    

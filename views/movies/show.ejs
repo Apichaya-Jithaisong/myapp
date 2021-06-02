@@ -1,0 +1,59 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <img src="<%= Movies.logo %>" height="55px" style="object-fit: contain; margin-top: 20px; margin-left: 1px;">
+                <div class="container-fluid" style="height: 150px; color: aliceblue; margin-top: 20px;">
+                        <h5>Director: <%= Movies.director %></h5>
+                        <h5>Release Date: <%= Movies.date %></h5>  
+                        <h5>Runtime: <%= Movies.runtime %> minutes</h5>
+                        <h5>IMDB: <%= Movies.score %></h5>   
+                </div>
+        </div>
+        <div class="col container">
+            <iframe width="850" height="450" src="<%= Movies.trailer %>"
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    <!-- <div class="container-fluid" style="background-color: #a38ffd; height: 345px;"> -->
+        
+</div>
+&nbsp;
+    <div class="container-fluid">
+        <% Movies.comments.forEach(function(comment){ %>
+            <div class="card card-cover text-white bg-dark rounded-5 shadow-lg p-2" style="height: 120px;">
+                <p>
+                    <strong>&nbsp;<%= comment.author.username %></strong>
+                </p>
+                &emsp; <%= comment.text %>
+                <p class="pt-3 mb-3 text-end">
+                    <%= comment.date %>
+                </p>
+            </div>
+            &nbsp;
+        <% }); %>
+
+        <% if(!currentUser) { %>
+            <div class="card card-cover text-white bg-dark rounded-5 shadow-lg p-2" style="height: 100px;">
+                <p class="d-flex justify-content-center mt-4">
+                    If you would like to comment please
+                    <a href="/login">&nbsp Login &nbsp</a> or <a href="/register">&nbsp Register &nbsp</a> here.
+                </p>
+                &emsp;
+            </div>
+        <% } else { %>
+            <div class='container'>
+                <form action='/movies/<%= Movies._id %>/comments' method='POST'>
+                    <input type="text" class="form-control" name='comment[text]' placeholder='Comment'>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        <% } %>
+    </div>
+    
+
+<%- include('../partials/footer.ejs') %>
