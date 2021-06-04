@@ -1,25 +1,71 @@
 body
 {    
-   /* background-image: linear-gradient(270deg, #1b2735 0%, #090a0f 100%); */
-   background-image: linear-gradient( 270deg, #090a0f , #1b2735 , #1b2735 , #090a0f);
-   
+   background-color: #000;
 }
+
+.invite{
+   /* color: rgba(240, 248, 255, 0.849); */
+   background: linear-gradient( 45deg, #f832e8, #c26cfc, #c26cfcd7, #2898f3, #2898f3);
+   font-size: 18px;
+   font-family: 'Nunito', sans-serif;
+   margin-bottom: 15px;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.video-container video {
+   position: absolute; 
+   top: 0;
+   left: 0;
+   width: 750px;
+   height: 100%;
+   object-fit: cover;
+ }
+
 .form-control{
    height: 40px;
    width: 270px;
-   margin-bottom: 17px;
+   margin-bottom: 19px;
+   border: none;
+   border-radius: 8px;
+   background-color: rgba(255, 255, 255, 0.918);
+   font-family: 'Nunito', sans-serif;
+   font-weight: bold;
+   padding-left: 10px;
+   font-size: 15px;
+}
+
+.bg-box{
+   position: absolute; 
+   width: 400px;
+   height: 400px; 
+   text-align: center;
+   z-index: 1000;
+   margin-left: 910px;
+   margin-top: 8px;
+} 
+
+#btn-singup{
+   width: 270px;
+   height: 37px;
    border: none;
    border-radius: 5px;
-   background-color: rgba(255, 255, 255, 0.555);
-   font-family: 'KoHo', sans-serif;
-   padding-left: 10px;
-   font-size: 15px; 
+   background-image: linear-gradient( 45deg, rgb(184, 40, 212) 0%, rgb(113, 36, 214) 50%, rgb(79, 15, 226) 100%);
+   color: azure;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   font-size: 18px;
 }
-.bg-box{
-   background-color: rgba(0, 0, 0, 0.959);
-   height: 900px; 
-   width: 750px; 
-   text-align: center;
-   margin-top: -10px !important;
-   margin: 0% auto;
+
+#btn-login{
+   margin-top: 20px; 
+   color: aliceblue;
+   font-family: 'Nunito', sans-serif;
+   font-weight: bold;
 }
+
+/* .arrow{
+   color: blue;
+} */
+
+
+
