@@ -62,4 +62,14 @@ router.get('/logout', function(req, res){
     res.redirect('back');
 });
 
+router.get('/user/:id', function(req, res){
+    User.findById(req.parans.id, function(err, foundUsre){
+        if(err){
+            req.flash('error', 'User not found');
+            return res.redirect('/');
+        }
+        
+    })
+})
+
 module.exports = router;

@@ -134,7 +134,7 @@ body
     font-size: 60px;
 }
 .bg-image{
-    background-image: url("https://media.discordapp.net/attachments/718002735475064874/846038836034797568/3.001.jpeg?width=1191&height=670");
+    background-image: url("/images/movies/bg-movie.jpeg");
     height: 300px;
     width: 100%;
     background-repeat: no-repeat;
@@ -204,4 +204,17 @@ body
 }
 .drop{
     color: #fff;
+}
+/*-------------End-----------------*/
+/*-------------show ads-----------------*/
+.bg-show{
+    background-image: url("/images/movies/bg-movie.jpeg");
+    height: 340px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.trailer{
+    margin-top: 10%;
 }

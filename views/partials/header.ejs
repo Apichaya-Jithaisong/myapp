@@ -20,7 +20,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black; height: 75px;">
             <div class="container-fluid" style="margin-top: 10px;">
                 <a class="navbar-brand" href="/">
-                    <img src="https://media.discordapp.net/attachments/718002735475064874/845593037677920286/image0.png?width=1440&height=429" height="25px" width="95px" style="margin-left: 15px;" class="d-inline-block align-text-top">
+                    <img src="/images/logo/navba-imove.jpg" height="25px" width="95px" style="margin-left: 15px;" class="d-inline-block align-text-top">
                 </a>
                 <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 400px;">
                     <ul class="navbar-nav">
@@ -52,7 +52,7 @@
                         <div class="dropdown">
                             <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="SignAs"><%= currentUser.username %></a> 
                             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
-                                <li><a class="nav-link drop" href="" id="Profile">Profile</a></li>
+                                <li><a class="nav-link drop" href="/user/<%= currentUser._id %>" id="Profile">Profile</a></li>
                                 <li><a class="nav-link drop" href="/logout" id="LogOut">LogOut</a></li>
                             </ul>
                         </div>     

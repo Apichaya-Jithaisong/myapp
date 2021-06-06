@@ -4,7 +4,6 @@ body
 }
 
 .invite{
-   /* color: rgba(240, 248, 255, 0.849); */
    background: linear-gradient( 45deg, #f832e8, #c26cfc, #c26cfcd7, #2898f3, #2898f3);
    font-size: 18px;
    font-family: 'Nunito', sans-serif;
@@ -57,15 +56,44 @@ body
 }
 
 #btn-login{
-   margin-top: 20px; 
    color: aliceblue;
    font-family: 'Nunito', sans-serif;
-   font-weight: bold;
+   margin-left: 210px;
 }
 
-/* .arrow{
-   color: blue;
-} */
+#btn-ss{
+   color: #ffff;
+   margin-left: 10px;
+   font-size: 18px;
+   font-family: 'Nunito', sans-serif;
+}
 
+.arrow{
+   color: aliceblue;
+   font-size: 16px;
+}
 
+.bg-boxx{
+   position: absolute; 
+   width: 400px;
+   height: 400px; 
+   text-align: center;
+   z-index: 1000;
+   margin-left: 910px;
+   margin-top: 30px;
+}
+
+.doyou{
+   color: rgba(240, 248, 255, 0.815);
+   font-size: 18px;
+   font-family: 'Nunito', sans-serif;
+   margin-bottom: 15px;
+   margin-top: 20px;
+}
+
+.btn-ho{
+   color: #ffff;
+   margin-top: 10px;
+   font-size: 20px;
+}
 

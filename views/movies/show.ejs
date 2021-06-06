@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
 
-<div class="container-fluid">
+<div class="container-fluid bg-show">
     <div class="row">
         <div class="col">
             <img src="<%= Movies.logo %>" height="55px" style="object-fit: contain; margin-top: 20px; margin-left: 1px;">
@@ -12,7 +12,7 @@
                 </div>
         </div>
         <div class="col container">
-            <iframe width="850" height="450" src="<%= Movies.trailer %>"
+            <iframe class="trailer" width="400px" height="190px" src="<%= Movies.trailer %>"
                 title="YouTube video player" frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
