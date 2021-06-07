@@ -4,12 +4,12 @@ const   express         = require('express'),
         app             = express(),
         bodyParser      = require('body-parser'),
         mongoose        = require('mongoose'),
+        flash           = require('connect-flash'),
+        methodOverride  = require('method-override'),
         passport        = require('passport'),
         LocalStrategy   = require('passport-local'),
 
         User            = require('./models/user'),
-        Movies          = require('./models/movies'),
-        // Comment         = require('./models/comment'),
         seedDB          = require('./seed');
 
 var indexRoutes = require('./routes/index');
@@ -20,6 +20,8 @@ var indexRoutes = require('./routes/index');
 mongoose.connect('mongodb://localhost/Movies');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
+app.use(flash());
 app.set('view engine', 'ejs');
 // seedDB();
 

@@ -19,7 +19,7 @@
   </div>
   <!------------------Movies---------------------->
   <div class="container" style="width: 70%; margin-left: 13.5%; margin-top: 30px;">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="position: relative;">
       <% Movies.forEach(function(movie){ %>
         <div class="col" style="width: 200px; margin: 0px auto;">
           <div class="card card-cover h-100" style="background-color: transparent; border: none; margin-top: 10px;">
@@ -33,6 +33,14 @@
                 </div>
               </div>
             </a>
+            <!-- <div class="row" style="top: 25px; right: 0px; position: absolute;">
+              <a class="col" href="/movies/<%= movie._id %>/edit">
+                  <button class="btn btn-outline-warning btn-dark" style="height: 45px; width: 65px;">Edit</button>
+              </a>
+              <form class="col" action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-outline-danger btn-dark" style="height: 45px; width: 80px;">Delete</button>
+              </form>
+            </div> -->
           </div>
         </div>
         <%}); %>
