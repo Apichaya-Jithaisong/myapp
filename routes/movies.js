@@ -40,7 +40,6 @@ router.get('/new', middleware.isLoggedIn, function(req,res){
 router.post('/new', upload.fields([{ name: 'image' }, { name: 'logo' }, { name: 'banner' } ]), function(req, res){
     req.body.movies.image = '/images/movies/uploads/' + req.files['image'][0].filename;
     req.body.movies.logo = '/images/movies/uploads/' + req.files['logo'][0].filename;
-    req.body.movies.banner = '/images/movies/uploads/' + req.files['banner'][0].filename;
     Movies.create(req.body.movies, function(err, newMovies){
         if(err){
             console.log(err);
@@ -49,6 +48,47 @@ router.post('/new', upload.fields([{ name: 'image' }, { name: 'logo' }, { name: 
         }
     });
 });
+
+//  Edit
+router.get('/:id/edit', middleware.isLoggedIn,  function(req, res){
+    Movies.findById(req.params.id, function( err, foundMovies ){
+        if(err) {
+            console.log(err);
+        } else {
+            res.render('./movies/edit.ejs', {Movies: foundMovies})
+        }
+    });
+});
+
+router.put('/:id', upload.fields([{ name: 'image' }, { name: 'logo' }]), function(req, res){
+    if ( req.files['image'] ){
+        req.body.movies.image = '/images/movies/uploads/' + req.files['image'][0].filename;
+    }
+    if ( req.files['logo'] ){
+        req.body.movies.logo = '/images/movies/uploads/' + req.files['logo'][0].filename;
+    }
+    Movies.findByIdAndUpdate(req.params.id, req.body.movies, function( err, updatedMovies ){
+        if(err) {
+            console.log(err);
+            res.redirect('/movies/')
+        } else {
+            res.redirect('/movies/' + req.params.id);
+        }
+    });
+});
+//  End of Edit
+
+//  Delete
+router.delete('/:id', function(req, res){
+    Movies.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect('/movies');
+        }
+    })
+});
+//  End of delete
 
 router.get('/:id', function(req,res){
     Movies.findById(req.params.id).populate('comments').exec(function(err, foundMovies){

@@ -5,39 +5,39 @@
         <p class="lead">Please fill out the information completeily.</p>
     </div>
     <div class="col-12">
-        <form action="/movies/new" method="POST" enctype="multipart/form-data">
+        <form action="/movies/<%= Movies._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
             <div class="container-fluid" style="height: 100%; width: 60% auto; margin-top: -55px;">
                 <div class="container-fluid mt-5 mb-5" style="width: 450px;">
                     
                     <div class="col-12">
                         <h5 class="text-name">Name</h5>
-                        <input type="text" class="form-control bg-input" required="required" name="movies[name]" placeholder="Ex. Seobok">
+                        <input type="text" class="form-control bg-input" required="required" name="movies[name]" placeholder="Ex. Seobok" value="<%= Movies.name %>">
                     </div>
                     <h5 class="col-12 mb-3 mt-4 text-name">Description</h5>
                     <div class="col-12 mb-4 mx-2">
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Genre</label>
-                            <input type="text" class="form-control bg-inputcolor" required="required" name="movies[genre]" placeholder="Ex. Action/Drama">
+                            <input type="text" class="form-control bg-inputcolor" required="required" name="movies[genre]" placeholder="Ex. Action/Drama" value="<%= Movies.genre %>">
                         </div>
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Director</label>
-                            <input type="text" class="form-control bg-inputcolor" required="required" name="movies[director]" placeholder="Ex. Apichaya Pleng">
+                            <input type="text" class="form-control bg-inputcolor" required="required" name="movies[director]" placeholder="Ex. Apichaya Pleng" value="<%= Movies.director %>">
                         </div>
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Runtime</label>
-                            <input type="text" class="form-control bg-inputcolor" required="required" name="movies[runtime]" placeholder="Ex. 1h 12min">
+                            <input type="text" class="form-control bg-inputcolor" required="required" name="movies[runtime]" placeholder="Ex. 1h 12min" value="<%= Movies.runtime %>">
                         </div>
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Score</label>
-                            <input type="number" step="0.1" class="form-control bg-inputcolor" required="required" name="movies[score]" placeholder="Ex. 10.0">
+                            <input type="number" step="0.1" class="form-control bg-inputcolor" required="required" name="movies[score]" placeholder="Ex. 10.0" value="<%= Movies.score %>">
                         </div>
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Show</label>
-                            <input type="text" class="form-control bg-inputcolor" required="required" name="movies[show]" placeholder="Ex. n">
+                            <input type="text" class="form-control bg-inputcolor" required="required" name="movies[show]" placeholder="Ex. n" value="<%= Movies.show %>">
                         </div>
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Desc</label>
-                            <input type="text" class="form-control bg-inputcolor" required="required" name="movies[desc]" placeholder="Ex. Once upon a time.">
+                            <input type="text" class="form-control bg-inputcolor" required="required" name="movies[desc]" placeholder="Ex. Once upon a time." value="<%= Movies.desc %>">
                         </div>
                     </div>
         
@@ -45,15 +45,17 @@
                     <div class="col-12 mb-5 mx-2">       
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Poster</label>
-                            <input type="file" class="form-control bg-inputcolor" required="required" name="image" accept="image/*">
+                            <img src="<%= Movies.image %>" height="300px" style="object-fit: cover;">
+                            <input type="file" class="form-control bg-inputcolor" name="image" accept="image/*">
                         </div>
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Logo</label>
-                            <input type="file" class="form-control bg-inputcolor" required="required" name="logo" accept="image/*">
+                            <img src="<%= Movies.logo %>" height="300px" style="object-fit: cover;">
+                            <input type="file" class="form-control bg-inputcolor" name="logo" accept="image/*">
                         </div>
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Trailer</label>
-                            <input type="url" class="form-control bg-inputcolor" name="movies[trailer]" required="required" placeholder="Ex. www.youtube.com/embed/....">
+                            <input type="url" class="form-control bg-inputcolor" name="movies[trailer]" required="required" placeholder="Ex. www.youtube.com/embed/...." value="<%= Movies.trailer %>">
                         </div>
                         <button class="btn btn-primary btn-submit" type="submit">Submit</button>
                     </div>     
