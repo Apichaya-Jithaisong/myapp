@@ -14,6 +14,7 @@ var moviesSchema = new mongoose.Schema({
     runtime: String,
     score: Number,
     show: String,
+    desc: String,
 
     comments : [
         {

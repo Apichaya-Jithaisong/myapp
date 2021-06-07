@@ -1,23 +1,32 @@
 <%- include('../partials/header.ejs') %>
 
-<div class="container-fluid bg-show">
-    <div class="row">
-        <div class="col">
-            <img src="<%= Movies.logo %>" height="55px" style="object-fit: contain; margin-top: 20px; margin-left: 1px;">
-                <div class="container-fluid" style="height: 150px; color: aliceblue; margin-top: 20px;">
+<div class="container">
+    <h5 class="heard"><%= Movies.name %></h5>
+    <div class="row" style="position: relative; margin-left: 25%; width: 50%;">
+        <div class="col-6" style="text-align: center; width: 190px;">
+            <img class="responsive" src="<%= Movies.image %>" >
+            
+                <!-- <div class="container-fluid" style="height: 150px; color: aliceblue; margin-top: 20px;">
                         <h5>Director: <%= Movies.director %></h5>
                         <h5>Release Date: <%= Movies.date %></h5>  
                         <h5>Runtime: <%= Movies.runtime %> minutes</h5>
                         <h5>IMDB: <%= Movies.score %></h5>   
-                </div>
+                </div> -->
         </div>
-        <div class="col container">
+        <!-- <div class="col-6" style="text-align: center;">
+            <iframe class="trailer" width="380px" height="250px" src="<%= Movies.trailer %>"
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div> -->
+        <!-- <div class="col container">
             <iframe class="trailer" width="400px" height="190px" src="<%= Movies.trailer %>"
                 title="YouTube video player" frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
             </iframe>
-        </div>
+        </div> -->
     </div>
     <!-- <div class="container-fluid" style="background-color: #a38ffd; height: 345px;"> -->
         

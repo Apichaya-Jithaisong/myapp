@@ -40,8 +40,8 @@ var data = [
         director: "Todd Phillips",
         runtime: "2h 2min",
         score: 8.4,
-        show: 'y'
-        // desc: "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker."
+        show: 'y',
+        desc: "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker."
     },
     {
         name: "Jurassic World: Fallen Kingdom",
@@ -52,7 +52,8 @@ var data = [
         director: "J.A. Bayona",
         runtime: "2h 8 min",
         score: 6.2,
-        show: 'y'
+        show: 'y',
+        desc: "When the island's dormant volcano begins roaring to life, Owen and Claire mount a campaign to rescue the remaining dinosaurs from this extinction-level event."
     },
     {
         name: "Happy Old Year",
@@ -63,7 +64,8 @@ var data = [
         director: "Nawapol Thamrongrattanarit",
         runtime: "1h 53min",
         score: 7.2,
-        show: 'y'
+        show: 'y',
+        desc: "A woman wants to reorganize her house and convert it into a home office. She will throw away anything that has been lying around unused. However, she faces a great challenge when she comes across some items that belonged to her ex-boyfriend."
     },
     {
         name: "Aquaman",
@@ -74,7 +76,8 @@ var data = [
         director: "James Wan",
         runtime: "2h 23min",
         score: 6.9,
-        show: 'y'
+        show: 'y',
+        desc: "Arthur Curry, the human-born heir to the underwater kingdom of Atlantis, goes on a quest to prevent a war between the worlds of ocean and land."
     },
     {
         name: "Venom",
@@ -85,7 +88,8 @@ var data = [
         director: "Ruben Fleischer",
         runtime: "1h 52min",
         score: 6.7,
-        show: 'y'
+        show: 'y',
+        desc: "A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth. But the being takes a liking to Earth and decides to protect it."
     },
     {
         name: "The Conjuring 2",
@@ -96,7 +100,8 @@ var data = [
         director: "James Wan",
         runtime: "2h 14min",
         score: 7.3,
-        show: 'y'
+        show: 'y',
+        desc: "Ed and Lorraine Warren travel to North London to help a single mother raising four children alone in a house plagued by a supernatural spirit."
     },
     {
         name: "Don't Breathe",
@@ -107,7 +112,8 @@ var data = [
         director: "Fede Alvarez",
         runtime: "1h 28min",
         score: 7.1,
-        show: 'y'
+        show: 'y',
+        desc: "Hoping to walk away with a massive fortune, a trio of thieves break into the house of a blind man who isn't as helpless as he seems."
     },
     {
         name: "Forrest Gump",
@@ -118,7 +124,8 @@ var data = [
         director: "Robert Zemeckis",
         runtime: "2h 22min",
         score: 8.8,
-        show: 'y'
+        show: 'y',
+        desc: "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart."
     },
     {
         name: "Cinderella",
@@ -129,7 +136,8 @@ var data = [
         director: "Kenneth Branagh",
         runtime: "1h 45min",
         score: 6.9,
-        show: 'y'
+        show: 'y',
+        desc: "When her father unexpectedly dies, young Ella finds herself at the mercy of her cruel stepmother and her scheming stepsisters. Never one to give up hope, Ella's fortunes begin to change after meeting a dashing stranger."
     },
     {
         name: "Kimi no na wa",
@@ -140,7 +148,8 @@ var data = [
         director: "Makoto Shinkai",
         runtime: "1h 46min",
         score: 8.4,
-        show: 'y'
+        show: 'y',
+        desc: "Two strangers find themselves linked in a bizarre way. When a connection forms, will distance be the only thing to keep them apart?"
     },
     {
         name: "Army of the Dead",
@@ -151,7 +160,8 @@ var data = [
         director: "Zack Snyder",
         runtime: "2h 28min",
         score: 6.0,
-        show: 'n'
+        show: 'n',
+        desc: "Following a zombie outbreak in Las Vegas, a group of mercenaries take the ultimate gamble, venturing into the quarantine zone to pull off the greatest heist ever attempted."
     },
     {
         name: "Ready or Not",
@@ -162,7 +172,8 @@ var data = [
         director: "Tyler Gillett",
         runtime: "1h 35min",
         score: 6.8,
-        show: 'n'
+        show: 'n',
+        desc: "A bride's wedding night takes a sinister turn when her eccentric new in-laws force her to take part in a terrifying game."
     },
     {
         name: "Hellboy",
@@ -173,7 +184,8 @@ var data = [
         director: "Neil Marshall",
         runtime: "2h",
         score: 5.2,
-        show: 'n'
+        show: 'n',
+        desc: "Based on the graphic novels by Mike Mignola, Hellboy, caught between the worlds of the supernatural and human, battles an ancient sorceress bent on revenge."
     },
     {
         name: "Fifty Shades of Grey",
@@ -184,7 +196,8 @@ var data = [
         director: "Sam Taylor-Johnson",
         runtime: "2h 5min",
         score: 4.1,
-        show: 'n'
+        show: 'n',
+        desc: "Literature student Anastasia Steele's life changes forever when she meets handsome, yet tormented, billionaire Christian Grey."
     },
 ]
 

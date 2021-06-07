@@ -33,6 +33,23 @@ router.get('/', function(req,res){
     });
 });
 
+router.get('/new', middleware.isLoggedIn, function(req,res){
+    res.render('./movies/new.ejs');
+});
+
+router.post('/new', upload.fields([{ name: 'image' }, { name: 'logo' }, { name: 'banner' } ]), function(req, res){
+    req.body.movies.image = '/images/movies/uploads/' + req.files['image'][0].filename;
+    req.body.movies.logo = '/images/movies/uploads/' + req.files['logo'][0].filename;
+    req.body.movies.banner = '/images/movies/uploads/' + req.files['banner'][0].filename;
+    Movies.create(req.body.movies, function(err, newMovies){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect('/movies');
+        }
+    });
+});
+
 router.get('/:id', function(req,res){
     Movies.findById(req.params.id).populate('comments').exec(function(err, foundMovies){
         if(err){
@@ -72,23 +89,6 @@ router.post('/', function(req,res){
 });
 
 
-//  New
-router.get('/new', middleware.isLoggedIn, function(req,res){
-    res.render('./movies/new.ejs');
-});
 
-router.post('/new', upload.fields([{ name: 'image' }, { name: 'logo' }, { name: 'banner' } ]), function(req, res){
-    req.body.movies.image = '/images/movies/uploads/' + req.files['image'][0].filename;
-    req.body.movies.logo = '/images/movies/uploads/' + req.files['logo'][0].filename;
-    req.body.movies.banner = '/images/movies/uploads/' + req.files['banner'][0].filename;
-    Movies.create(req.body.movies, function(err, newMovies){
-        if(err){
-            console.log(err);
-        } else {
-            res.redirect('/movies');
-        }
-    });
-});
-//  End of New
 
 module.exports = router;
