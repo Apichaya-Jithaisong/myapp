@@ -16,6 +16,9 @@ var indexRoutes = require('./routes/index');
     moviesRoutes = require('./routes/movies');
     cinemasRoutes = require('./routes/cinemas');
     commentRoutes = require('./routes/comment');
+    reserveRoutes = require('./routes/reserve');
+    sessionRoutes = require('./routes/session');
+    userRoutes = require('./routes/user');
 
 mongoose.connect('mongodb://localhost/Movies');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -46,6 +49,9 @@ app.use('/', indexRoutes);
 app.use('/movies', moviesRoutes);
 app.use('/cinemas', cinemasRoutes);
 app.use('/movies/:id/comments', commentRoutes);
+app.use('/reserve', reserveRoutes);
+app.use('/session', sessionRoutes);
+app.use('/user', userRoutes);
 
 app.listen(3000, function(){
     console.log("Sever is running");

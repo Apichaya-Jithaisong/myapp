@@ -17,6 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/home.css">
 </head>
 <body>
@@ -36,9 +39,12 @@
                         <li class="nav-item">
                             <a class="nav-link change" href="/cinemas" id="two">CINEMAS</a>
                         </li>
+                        <% if(!currentUser) { %>
+                        <% } else { %>
                         <li class="nav-item">
-                            <a class="nav-link change" href="/booking" id="tree">BOOKING</a>
+                            <a class="nav-link change" href="/user/<%= currentUser._id %>/ticket" id="tree">MY TICKET</a>
                         </li>
+                        <% } %>
                     </ul>
                 </div>
                 <div class="nav-link">
@@ -52,7 +58,7 @@
                     <a class="nav-link" href="/register" id="SignUp" style="font-family: 'KoHo', sans-serif;">Sign up</a> 
                     <a class="nav-link" href="/login" id="Login" style="font-family: 'KoHo', sans-serif;">Login</a>
                     <% } else { %>
-                        <div class="dropdown">
+                        <div class="dropdown dropdown-pull-right">
                             <a class="nav-link " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="SignAs"><%= currentUser.username %></a> 
                             <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
                                 <li><a class="nav-link drop" href="/user/<%= currentUser._id %>" id="Profile">Profile</a></li>
@@ -62,4 +68,6 @@
                     <% } %>
             </div>
         </nav>
+
+        
     

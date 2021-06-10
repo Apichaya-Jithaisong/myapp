@@ -1,0 +1,224 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container-fluid px-3 pt-2 nam-box">
+    <h1 class="box place-box">
+      <img
+        src="https://media.discordapp.net/attachments/718002735475064874/845974386439356466/image0.jpg?width=101&height=669"
+        height="35px" width="10px" style="margin-bottom: 7px;">
+      Select Seat
+    </h1>
+</div>
+
+
+<!-- Reservation Form -->
+<form action="/reserve/<%= Session._id %>" method="POST">
+    <div class="container-fluid px-3 pt-3 pic-box">   
+        <div class="center row cen-box">
+            <div class="col-md-6 pic-si">
+                <img class="mx-3" src="<%= Movies.image %>"  height="220px">
+            </div>
+            
+            <div class="col-md-6 des-sele">
+                <h4 class="desc"><%= Movies.name %></h4>
+                <p class="desc">
+                    <ion-icon name="today-outline" style="color: #fff; font-size: 16px;"></ion-icon>
+                    : <%= Session.date %>
+                </p>
+                <p class="sessionTimeButton" style="margin-top: -8px;">
+                    <ion-icon name="time-outline" style="color: #fff; font-size: 16px;"></ion-icon>
+                    : <%= Session.time %>
+                </p>
+                <p class="desc" style="margin-top: -8px; margin-bottom: 8px;">
+                    <ion-icon name="navigate-outline" style="color: #fff; font-size: 16px;"></ion-icon>
+                    : Cinema: <%= Cinemas.name %>
+                </p>
+                <p class="desc" style="word-spacing:2px;">
+                    <ion-icon name="walk" style="color: #fff; font-size: 16px;"></ion-icon>
+                    : Theater <%= Session.theater %></p>
+                
+                <p class="desc" style="margin-top: -8px;">
+                    <ion-icon name="time-outline"></ion-icon>
+                    : <%= Movies.runtime %>
+                </p>
+                
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container-fluid px-3" style="height: 100%; background-color: rgba(0, 0, 0, 0.514);">
+        <div class="row"> -->
+            <!-- Reservation -->
+            <!-- <div class="col-4 pt-5">
+                <div class="container-fluid pt-3 row" style="height: 275px; background-color: rgb(26, 26, 26);">
+                    <img class="col-5 mt-3" src="<%= Movies.image %>" style="height: 200px;">
+                    <div class="col mt-3">
+                        <h3 style="color: white;"><%= Movies.name %></h3>
+                        <h5 class="desc">Runtime: <%= Movies.runtime %></h5>
+                        <h5 class="desc">Cinema: <%= Cinemas.name %></h5>
+                        <h5 class="desc">Theater: <%= Session.theater %></h5>
+                        <h5 class="desc">Date: <%= Session.date %>&emsp;</h5>
+                        <button type="button" class="sessionTimeButton"><%= Session.time %></button>
+                    </div>
+                    
+                </div>
+                <h1>Reservation</h1>
+                <h3 style="color: gray;">Seat: <span id="seat"></span></h3>
+                <h3 style="color: gray;">Price: <span id="price"></span> Baht</h3>
+                <div style="position: relative; height: 80px;">
+                    <button id="submit" type="submit" class="btn btn-primary seat-submit">Reserve</button>
+                </div>
+            </div> -->
+            <!-- End of Reservation -->
+            <!-- <div class="col mt-5 mb-5 mx-5 seat-block"> -->
+                <!-- Screen -->
+                <!-- <div class="container-fluid screen"></div>
+                <h5 style="text-align: center;">Screen</h5> -->
+                <!-- End of Screen -->
+
+                <!-- Seat -->
+                <!-- <div class="center"> -->
+                    <!-- Row A -->
+                    <!-- <div class="row mb-3">
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('A1') ) { %>
+                                <button type="button" class="seat-button" onclick="reserve('A1')">
+                                    <img class="seat" id="A1" src="/images/reserve/seat.png">
+                                    <input type='hidden' name="A1" id="iA1" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat"src="/images/reserve/seat.png" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('A2') ) { %>
+                                <button type="button" class="seat-button" name="A2" value="n" onclick="reserve('A2')">
+                                    <img class="seat" id="A2" src="/images/reserve/seat.png">
+                                    <input type="hidden" name="A2" id="iA2" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat"src="/images/reserve/seat.png" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('A3') ) { %>
+                                <button type="button" class="seat-button" name="A3" value="n" onclick="reserve('A3')">
+                                    <img class="seat" id="A3" src="/images/reserve/seat.png">
+                                    <input type="hidden" name="A3" id="iA3" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat"src="/images/reserve/seat.png" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('A4') ) { %>
+                                <button type="button" class="seat-button" name="A4" value="n" onclick="reserve('A4')">
+                                    <img class="seat" id="A4" src="/images/reserve/seat.png">
+                                    <input type="hidden" name="A4" id="iA4" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat"src="/images/reserve/seat.png" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                    </div> -->
+                    <!-- End of Row A -->
+
+                    <!-- Row B -->
+                    <!-- <div class="row">
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('B1') ) { %>
+                                <button type="button" class="seat-button" name="B1" value="n" onclick="reserve('B1')">
+                                    <img class="seat" id="B1" src="/images/reserve/seat.png">
+                                    <input type="hidden" name="B1" id="iB1" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat"src="/images/reserve/seat.png" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('B2') ) { %>
+                                <button type="button" class="seat-button" name="B2" value="n" onclick="reserve('B2')">
+                                    <img class="seat" id="B2" src="/images/reserve/seat.png">
+                                    <input type="hidden" name="B2" id="iB2" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat"src="/images/reserve/seat.png" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('B3') ) { %>
+                                <button type="button" class="seat-button" name="B3" value="n" onclick="reserve('B3')">
+                                    <img class="seat" id="B3" src="/images/reserve/seat.png">
+                                    <input type="hidden" name="B3" id="iB3" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat"src="/images/reserve/seat.png" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('B4') ) { %>
+                                <button type="button" class="seat-button" name="B4" value="n" onclick="reserve('B4')">
+                                    <img class="seat" id="B4" src="/images/reserve/seat.png">
+                                    <input type="hidden" name="B4" id="iB4" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat"src="/images/reserve/seat.png" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                    </div> -->
+                    <!-- End of Row B -->
+                <!-- </div> -->
+                <!-- End of Seat -->
+                
+                <!-- <h5 style="bottom: 0; right: 10px; position: absolute;">Price 1 Seat = 80 Baht</h5> -->
+            <!-- </div> -->
+
+            
+        <!-- </div>
+    </div> -->
+    <input type="hidden" name="reserve[date]" value="<%= Session.date %>">
+    <input type="hidden" name="reserve[time]" value="<%= Session.time %>">
+    <input type="hidden" name="reserve[theater]" value="<%= Session.theater %>">
+    <input type="hidden" name="reserve[moviesName]" value="<%= Movies.name %>">
+    <input type="hidden" name="reserve[moviesImage]" value="<%= Movies.image %>">
+    <input type="hidden" name="reserve[cinemaName]" value="<%= Cinemas.name %>">
+    <input type="hidden" name="reserve[cinemaImage]" value="<%= Cinemas.logo %>">
+</form>
+<!-- End of Reservation Form -->
+
+<script>
+    var price = 0; seat = 0;
+    document.getElementById("seat").innerHTML = seat;
+    document.getElementById("price").innerHTML = price;
+    if ( seat > 0 ) {
+        document.getElementById('submit').disabled = false;
+    }
+    else if ( seat == 0 ) {
+        document.getElementById('submit').disabled = true;
+    }
+    function reserve(selectedSeat) {
+        if(document.getElementById('i' + selectedSeat).value == 'n'){
+            document.getElementById(selectedSeat).style.opacity = '0.5';
+            document.getElementById('i' + selectedSeat).value = 'y';
+            seat += 1;
+            price += 80;
+            document.getElementById("seat").innerHTML = seat;
+            document.getElementById("price").innerHTML = price;
+        }
+        else if(document.getElementById('i' + selectedSeat).value == 'y'){
+            document.getElementById(selectedSeat).style.opacity = '1';
+            document.getElementById('i' + selectedSeat).value = 'n';
+            
+            seat -= 1;
+            price -= 80;
+            document.getElementById("seat").innerHTML = seat;
+            document.getElementById("price").innerHTML = price;
+        }
+        if ( seat > 0 ) {
+            document.getElementById('submit').disabled = false;
+        }
+        else if ( seat == 0 ) {
+            document.getElementById('submit').disabled = true;
+        }
+    }
+</script>
+
+<%- include('../partials/footer.ejs') %>

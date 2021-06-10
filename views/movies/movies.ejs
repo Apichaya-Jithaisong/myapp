@@ -1,21 +1,24 @@
 <%- include('../partials/header.ejs') %>
 
   <div class="container-fluid bg-image">
-    <h1 id="headerMovie" style="color: aliceblue; position: absolute;">MOVIE</h1>
-    <form method="POST" action="/movies">
-      <select name="genre" id="Genre" required class="sel-btn">
-        <option value="All-movie">All movie</option>
-        <option value="Action">Action</option>
-        <option value="Adventure">Adventure</a></option>
-        <option value="Crime">Crime</option>
-        <option value="Drama">Drama</option>
-        <option value="Horror">Horror</option>
-        <option value="Romance">Romance</option>
-        <option value="Thriller">Thriller</option>
-      </select>
-      <input type='submit' class="btn-sub">
-      <!-- <button class="btn-soon">Coming Soon</button> -->
-    </form>
+    <div id="headerMovie">
+      MOVIE
+      <div class="dropdown">
+        <button class="btn btn dropdown-toggle sel-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
+          <%= sort %>
+        </button>
+        <ul class="dropdown-menu bg-dark">
+          <li><a class="dropdown-item text-white" href="/movies">All</a></li>
+          <li><a class="dropdown-item text-white" href="/movies/genre/Action">Action</a></li>
+          <li><a class="dropdown-item text-white" href="/movies/genre/Adventure">Adventure</a></li>
+          <li><a class="dropdown-item text-white" href="/movies/genre/Crime">Crime</a></li>
+          <li><a class="dropdown-item text-white" href="/movies/genre/Drama">Drama</a></li>
+          <li><a class="dropdown-item text-white" href="/movies/genre/Horror">Horror</a></li>
+          <li><a class="dropdown-item text-white" href="/movies/genre/Romance">Romance</a></li>
+          <li><a class="dropdown-item text-white" href="/movies/genre/Thriller">Thriller</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
   <!------------------Movies---------------------->
   <div class="container" style="width: 70%; margin-left: 13.5%; margin-top: 30px;">
@@ -33,18 +36,53 @@
                 </div>
               </div>
             </a>
-            <!-- <div class="row" style="top: 25px; right: 0px; position: absolute;">
-              <a class="col" href="/movies/<%= movie._id %>/edit">
-                  <button class="btn btn-outline-warning btn-dark" style="height: 45px; width: 65px;">Edit</button>
-              </a>
-              <form class="col" action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
-                  <button class="btn btn-outline-danger btn-dark" style="height: 45px; width: 80px;">Delete</button>
+            <% if(!currentUser) {%>
+              <form action="/login">
+                <button type="submit" class="po-heart">
+                    <ion-icon name="heart-outline" id="heart-one"></ion-icon>
+                </button>
               </form>
-            </div> -->
+              <% } else if ( currentUser.isAdmin === false ) { %>
+                <% var lid; %>
+                  <% currentUser.likes.forEach(function(liked){ if ( liked.movies.id == movie.id ) { match = 1; lid = liked._id; } }); %>
+                    <% if( lid != null ) { %>
+                        <form action="/movies/<%= lid %>/unlike" method="POST">
+                          <button type="submit" class="po-heart">
+                            <ion-icon name="heart" id="heart-one"></ion-icon>
+                          </button>
+                        </form>
+                    <% } else { %>
+                        <form action="/movies/<%= movie._id %>/like" method="POST">
+                          <button type="submit" class="po-heart">
+                              <ion-icon name="heart-outline" id="heart-one"></ion-icon>
+                          </button>
+                        </form>
+                    <% } %>
+              <% } else if ( currentUser.isAdmin === true ) { %>
+                <div class="row" style="position: absolute; top: 88%; left: 15%;">
+                    <a class="col" href="/movies/<%= movie._id %>/edit">
+                      <button class="btn btn-outline-warning btt">Edit</button>
+                    </a>
+                    <form class="col" action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
+                      <button class="btn btn-outline-danger btt">Delete</button>
+                    </form>
+                </div>
+              <% } %>
           </div>
         </div>
         <%}); %>
     </div>
   </div>
+  <% if(!currentUser) {%>
+    <% } else if ( currentUser.isAdmin === true ) { %>
+        <div class="card card-cover text-white bg-dark rounded-5 shadow-lg p-2" style="height: 120px;">
+            <p class="d-flex justify-content-center mt-4">
+                <a href="/movies/new">
+                    <button type="button" class="btn btn-outline-light" style="height: 50px; width: 600px;">Add new Movies</button>
+                </a>
+            </p>
+            &emsp;
+        </div>
+    <% } %>
 
   <%- include('../partials/footer.ejs') %>

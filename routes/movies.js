@@ -22,18 +22,21 @@ var express = require('express'),
         fileFilter: imageFilter,
     }),
     Movies  = require('../models/movies');
+    Cinemas = require('../models/cinemas');
+    Liked   = require('../models/liked');
+    User    = require('../models/user');
 
 router.get('/', function(req,res){
     Movies.find({show: 'y'}, function(err, allMovies){
         if(err){
             console.log(err);
-        } else {
-            res.render('./movies/movies.ejs', {Movies: allMovies});
+        } else {        
+            res.render('./movies/movies.ejs', {Movies: allMovies, sort: 'All Movies'});
         }
     });
 });
 
-router.get('/new', middleware.isLoggedIn, function(req,res){
+router.get('/new', middleware.checkAdmin, function(req,res){
     res.render('./movies/new.ejs');
 });
 
@@ -50,7 +53,7 @@ router.post('/new', upload.fields([{ name: 'image' }, { name: 'logo' }, { name: 
 });
 
 //  Edit
-router.get('/:id/edit', middleware.isLoggedIn,  function(req, res){
+router.get('/:id/edit', middleware.checkAdmin,  function(req, res){
     Movies.findById(req.params.id, function( err, foundMovies ){
         if(err) {
             console.log(err);
@@ -79,7 +82,7 @@ router.put('/:id', upload.fields([{ name: 'image' }, { name: 'logo' }]), functio
 //  End of Edit
 
 //  Delete
-router.delete('/:id', function(req, res){
+router.delete('/:id', middleware.checkAdmin, function(req, res){
     Movies.findByIdAndRemove(req.params.id, function(err){
         if(err){
             console.log(err);
@@ -95,7 +98,13 @@ router.get('/:id', function(req,res){
         if(err){
             console.log(err);
         } else {
-            res.render('./movies/show.ejs', {Movies: foundMovies});
+            Cinemas.find({}, function(err, allCinemas){
+                if(err){
+                    console.log(err);
+                } else {
+                    res.render('./movies/show.ejs', {Movies: foundMovies, Cinemas: allCinemas});
+                }
+            });
         }
     });
 });
@@ -115,20 +124,74 @@ router.get('/search/:name', function(req,res){
     });
 });
 
-router.post('/', function(req,res){
-    if ( req.body.genre == 'All-movie' ) {
-        res.redirect('back');
-        }
-    Movies.find({genre: new RegExp(req.body.genre, 'i'), show: 'y'}, function(err, foundMovies){
+// router.post('/', function(req,res){
+//     if ( req.body.genre == 'All-movie' ) {
+//         res.redirect('back');
+//         }
+//     Movies.find({genre: new RegExp(req.body.genre, 'i'), show: 'y'}, function(err, foundMovies){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             res.render('./movies/movies.ejs', {Movies: foundMovies});
+//         }
+//     });
+// });
+
+router.get('/genre/:genre', function(req, res){
+    Movies.find({genre: new RegExp(req.params.genre, 'i')}, function(err, foundMovie){
         if(err){
             console.log(err);
         } else {
-            res.render('./movies/movies.ejs', {Movies: foundMovies});
+            res.render('movies/movies.ejs', {Movies: foundMovie, sort: req.params.genre});
         }
     });
 });
 
+router.post('/:id/like', middleware.isLoggedIn, function(req, res){
+    User.findById(req.user._id, function(err, foundUsers){
+        if(err){
+            console.log(err);
+            res.redirect('back');
+        } else {
+            Liked.create({}, function(err, like){
+                if(err){
+                    console.log(err);
+                } else {
+                    Movies.findById(req.params.id, function(err, foundMovies){
+                        if(err){
+                            console.log(err);
+                        } else {
+                            like.movies.id      = req.params.id;
+                            like.movies.logo    = foundMovies.logo;
+                            like.movies.banner    = foundMovies.banner;
+                            like.save();
+                            foundUsers.likes.push(like);
+                            foundUsers.save();
+                            res.redirect('back');
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
 
+router.post('/:id/unlike', middleware.isLoggedIn, function(req, res){
+    User.update( {_id: req.user._id}, { $pull: { likes: req.params.id } } ).exec(function(err){
+        if(err){
+            console.log(err);
+            res.redirect('back');
+        } else {
+            Liked.findByIdAndRemove(req.params.id, function(err){
+                if(err){
+                    console.log(err);
+                } else {
+                    res.redirect('back');
+                }
+            });
+        }
+    });
+});
 
 
 module.exports = router;

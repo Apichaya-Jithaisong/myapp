@@ -7,25 +7,21 @@ var cinemasdata = [
         name: "Imove Paragon",
         image: "/images/cinemas/cine-paragon.jpg",
         desc: "The ultimate landscape of entertainment culture.  Experience a superior movie theater at Paragon, 5th floor.",
-        num: "1"
     },
     {
         name: "Imove Iconsiam",
         image: "/images/cinemas/cine-iconsaim.jpg",
         desc: "The ultimate landscape of entertainment culture.  Experience a superior movie theater at Iconsiam, 5th floor.",
-        num: "2"
     },
     {
         name: "Imove WestGate",
         image: "/images/cinemas/cine-weatgate.jpg",
         desc: "The ultimate landscape of entertainment culture.  Experience a superior movie theater at CentralPlaza WestGate, 5th floor.",
-        num: "3"
     },
     {
         name: "Imove Pinklao",
         image: "/images/cinemas/cine-pinklao.jpg",
         desc: "The ultimate landscape of entertainment culture.  Experience a superior movie theater at Pinklao, 5th floor.",
-        num: "4"
     },
     
 ]
@@ -233,6 +229,20 @@ function seedDB(){
                         console.log('Cinemas data added');
                     }
                 });
+            });
+        }
+    });
+
+    Liked.remove({}, function(err){
+        if(err){
+            console.log(err);
+        } else {
+            User.updateMany({likes: []}, function(err){
+                if(err){
+                    console.log(err);
+                } else {
+                    console.log("Remove Liked Complete");
+                }
             });
         }
     });

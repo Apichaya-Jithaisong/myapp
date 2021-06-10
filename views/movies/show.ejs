@@ -1,68 +1,195 @@
 <%- include('../partials/header.ejs') %>
 
-<div class="container">
-    <h5 class="heard"><%= Movies.name %></h5>
-    <div class="row" style="position: relative; margin-left: 25%; width: 50%;">
-        <div class="col-6" style="text-align: center; width: 190px;">
-            <img class="responsive" src="<%= Movies.image %>" >
-            
-                <!-- <div class="container-fluid" style="height: 150px; color: aliceblue; margin-top: 20px;">
-                        <h5>Director: <%= Movies.director %></h5>
-                        <h5>Release Date: <%= Movies.date %></h5>  
-                        <h5>Runtime: <%= Movies.runtime %> minutes</h5>
-                        <h5>IMDB: <%= Movies.score %></h5>   
-                </div> -->
+<% var weekday = new Array(7), month = new Array(12); %>
+<% weekday[0] = "Sun", weekday[1] = "Mon", weekday[2] = "Tues", weekday[3] = "Wed", weekday[4] = "Thurs", weekday[5] = "Fri", weekday[6] = "Sat"; %>
+<% month[0] = "Jan", month[1] = "Feb",month[2] = "Mar", month[3] = "Apr", month[4] = "May", month[5] = "June", month[6] = "July", month[7] = "Aug", month[8] = "Sept", month[9] = "Oct", month[10] = "Nov", month[11] = "Dec";  %>
+<% var Time1 = new Date() %>
+
+<% var Time2 = new Date(Time1) %>
+<% Time2.setDate(Time2.getDate() + 1) %>
+
+<% var Time3 = new Date(Time2) %>
+<% Time3.setDate(Time3.getDate() + 1) %>
+
+<% var Time4 = new Date(Time3) %>
+<% Time4.setDate(Time4.getDate() + 1) %>
+
+<% var Time5 = new Date(Time4) %>
+<% Time5.setDate(Time5.getDate() + 1) %>
+
+<% var Day1 = Time1.getDay(), Month1 = Time1.getMonth(), Date1 = Time1.getDate(); %>
+<% var D1 = weekday[Day1] + ' ' + Date1 + ' ' + month[Month1]; %>
+
+<% var Day2 = Time2.getDay(), Month2 = Time2.getMonth(), Date2 = Time2.getDate(); %>
+<% var D2 = weekday[Day2] + ' ' + Date2 + ' ' + month[Month2]; %>
+
+<% var Day3 = Time3.getDay(), Month3 = Time3.getMonth(), Date3 = Time3.getDate(); %>
+<% var D3 = weekday[Day3] + ' ' + Date3 + ' ' + month[Month3]; %>
+
+<% var Day4 = Time4.getDay(), Month4 = Time4.getMonth(), Date4 = Time4.getDate(); %>
+<% var D4 = weekday[Day4] + ' ' + Date4 + ' ' + month[Month4]; %>
+
+<% var Day5 = Time5.getDay(), Month5 = Time5.getMonth(), Date5 = Time5.getDate(); %>
+<% var D5 = weekday[Day5] + ' ' + Date5 + ' ' + month[Month5]; %>
+
+    <h5 class="heard">
+        <%= Movies.name %>
+    </h5>
+    <div class="album py-5">
+        <div class="container" style=" height:auto;">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 g-1" style="height: 240px;">
+
+                <div class="col" style="margin: 0 auto; margin-top: -3%;">
+                    <iframe src="<%= Movies.trailer %>" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen style="height: 14rem; width: 26rem; margin-left: 34%;">
+                    </iframe>
+                    <h5 class="fff">Director: <%= Movies.director %> &nbsp; &nbsp;| &nbsp; <ion-icon
+                                name="time-outline"></ion-icon>: <%= Movies.runtime %> &nbsp; &nbsp;| &nbsp; IMDB: <%=
+                                    Movies.score %>
+                    </h5>
+                </div>
+
+            </div>
+            <div class="row mb-12">
+                <div class="col-md-12">
+                    <div
+                        class="row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative frame-desc">
+                        <div class="col-auto d-none d-lg-block" style="margin-left: 30%;">
+                            <img class="col" src="<%= Movies.image %>" height="290px">
+                        </div>
+
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <p class="card-text mb-auto text-d" style="width: 300px;">
+                                <%= Movies.desc %>
+                            </p>
+                            <% if(!currentUser) { %>
+                                <div class="row siz-heartandbtn" >
+                                    <div class="col-6">
+                                        <form action="/login">
+                                            <button type="submit" style="background-color: transparent; border: none; display: inline;">
+                                                <ion-icon name="heart-outline" id="heart"></ion-icon>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="col-6">
+                                        <form action="/login">
+                                            <button type="submit" class="btn btn-primary btn-bs">Booking</button>
+                                        </form>
+                                    </div> 
+                                </div>
+                                
+                            <% } else { %>
+                                <% var lid; %>
+                                <% currentUser.likes.forEach(function(liked){ if ( liked.movies.id == Movies.id ) { match = 1; lid = liked._id; } }); %>
+                                <% if( lid != null ) { %>
+                                    <div class="row siz-heartandbtn">
+                                        <div class="col-6">
+                                            <form action="/movies/<%= lid %>/unlike" method="POST">
+                                                <button type="submit" style="background-color: transparent; border: none;">
+                                                    <ion-icon name="heart" id="heart"></ion-icon>
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="button" class="btn btn-primary btn-bs" data-bs-toggle="modal" data-bs-target="#reserveModal">Booking</button>
+                                        </div>
+                                    </div>
+                                    
+                                <% } else { %>
+                                    <div class="row siz-heartandbtn">
+                                        <div class="col-6">
+                                            <form action="/movies/<%= Movies._id %>/like" method="POST">
+                                                <button type="submit" style="background-color: transparent; border: none; display: inline;">
+                                                    <ion-icon name="heart-outline" id="heart"></ion-icon>
+                                                </button>   
+                                            </form>
+                                        </div>
+                                        <div class="col-6">
+                                            <button type="button" class="btn btn-primary btn-bs" data-bs-toggle="modal" data-bs-target="#reserveModal">Booking</button>
+                                        </div>       
+                                    </div>
+                                    
+                                <% } %>
+                                    
+                                    <div class="modal fade" id="reserveModal" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header" style="height: 90px;">
+                                                    <h5 class="modal-title font-boo" >Booking <%= Movies.name %></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="row px-3" style="width: 100%;">
+                                                        <% Cinemas.forEach(function(cinema){ %>
+                                                            <div class="col-md-6 col-sm-12">
+                                                                <div class="row g-0  position-relative mb-3">
+                                                                    <a href="/session/<%= cinema._id %>/<%= Movies._id %>">
+                                                                        <button class="btn btn-dark btn-de" type="button">
+                                                                            <div class="col p-3 d-flex flex-column position-static" style="margin-top: 2px; margin-right: 2px;">
+                                                                                <h3><%= cinema.name %></h3>
+                                                                            </div>
+                                                                        </button>
+                                                                    </a>
+                                                                </div>
+                                                              </div>
+                                                        <% }); %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <% } %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- <div class="col-6" style="text-align: center;">
-            <iframe class="trailer" width="380px" height="250px" src="<%= Movies.trailer %>"
-                title="YouTube video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </div> -->
-        <!-- <div class="col container">
-            <iframe class="trailer" width="400px" height="190px" src="<%= Movies.trailer %>"
-                title="YouTube video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </div> -->
-    </div>
-    <!-- <div class="container-fluid" style="background-color: #a38ffd; height: 345px;"> -->
         
-</div>
-&nbsp;
-    <div class="container-fluid">
-        <% Movies.comments.forEach(function(comment){ %>
-            <div class="card card-cover text-white bg-dark rounded-5 shadow-lg p-2" style="height: 120px;">
-                <p>
-                    <strong>&nbsp;<%= comment.author.username %></strong>
-                </p>
-                &emsp; <%= comment.text %>
-                <p class="pt-3 mb-3 text-end">
-                    <%= comment.date %>
-                </p>
-            </div>
+
+        
+        <div class="container">
+            <h1 class="text-com"> Comment</h1>
+            <% if(!currentUser) { %>
+                <div class="card card-cover box-bg">
+                    <p class="d-flex justify-content-center mt-4">
+                        Please &nbsp
+                        <a href="/login" class="com-lo"> login </a>
+                        &nbsp to comment.
+                    </p>
+                    &emsp;
+                </div>
+                <% } else { %>
+                    <div class='container'>
+                        <form action='/movies/<%= Movies._id %>/comments' method='POST'>
+                            <input type="text" class="form-control put-com" name='comment[text]' placeholder='Comment'> 
+                            <div class="container-fluid" style="position: relative;">
+                                <button type="submit" class="btn btn-primary btn-su">Submit</button>
+                            </div>
+                        </form>
+                        
+                       
+                    </div>
+                    <% } %>
+      
             &nbsp;
-        <% }); %>
+            <% Movies.comments.forEach(function(comment){ %>
+                <div class="card card-cover text-white shadow-lg p-2 bg-texycom">
+                    <div style="height: 10px;"></div>
+                    <p>
+                        <strong style="font-family: 'Cinzel', serif; font-size: 18px;">&nbsp;&emsp;<%= comment.author.username %></strong>
+                    </p>
+                    &emsp; &emsp;<%= comment.text %>
+                        <p class="pt-3 mb-3 text-end" style="font-family: 'Mukta', sans-serif;">
+                            <%= comment.date %>
+                        </p>
+                </div>
+                &nbsp;
+                <% }); %>
 
-        <% if(!currentUser) { %>
-            <div class="card card-cover text-white bg-dark rounded-5 shadow-lg p-2" style="height: 100px;">
-                <p class="d-flex justify-content-center mt-4">
-                    If you would like to comment please
-                    <a href="/login">&nbsp Login &nbsp</a> or <a href="/register">&nbsp Register &nbsp</a> here.
-                </p>
-                &emsp;
-            </div>
-        <% } else { %>
-            <div class='container'>
-                <form action='/movies/<%= Movies._id %>/comments' method='POST'>
-                    <input type="text" class="form-control" name='comment[text]' placeholder='Comment'>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-        <% } %>
-    </div>
-    
+                    
+        </div>
 
-<%- include('../partials/footer.ejs') %>
+
+        <%- include('../partials/footer.ejs') %>

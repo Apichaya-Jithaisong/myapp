@@ -5,9 +5,18 @@ var userSchema = new mongoose.Schema({
     username: String,
     password: String,
     email: String,
-    profileImage: String,
+    profileImage: {type: String, default: '/images/user/default.png'},
+    isAdmin: {type: Boolean, default: false},
+    likes : [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Liked',
+            autopopulate: true
+        }
+    ],
 });
 
 userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(require('mongoose-autopopulate'));
 
 module.exports = mongoose.model('User', userSchema);

@@ -1,10 +1,20 @@
 <%- include('../partials/header.ejs') %>
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-         
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
     <div class="carousel-indicators">
-        <div class="carousel-indicators">
-            <h1 class="text-cin">CINEMAS</h1>
-        </div>  
+      <div class="carousel-indicators">
+        <div class="text-cin">
+          <h1 id="ccc">CINEMAS</h1>
+          <% if(!currentUser) {%>
+            <% } else if ( currentUser.isAdmin===true ) { %>
+              <a href="/cinemas/new">
+                <button type="button" class="btn btn-sho btn-add-c">Add new Cinemas</button>
+              </a>
+              <% } %>
+
+        </div>
+
+      </div>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
@@ -13,46 +23,65 @@
 
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="/images/cinemas/seat1.jpeg"
-          height="300px" width="100%" class="d-block w-100" alt="..." style="object-fit: cover;">
+        <img src="/images/cinemas/seat1.jpeg" height="300px" width="100%" class="d-block w-100" alt="..."
+          style="object-fit: cover;">
         <div class="carousel-caption d-none d-md-block">
           <div class="slider-btn">
-            <!-- <h1 class="text-cin">CINEMAS</h1> -->
           </div>
         </div>
       </div>
       <div class="carousel-item">
-        <img
-          src="/images/cinemas/seat2.jpeg"
-          height="300px" width="100%" class="d-block w-100" alt="..." style="object-fit: cover;">
+        <img src="/images/cinemas/seat2.jpeg" height="300px" width="100%" class="d-block w-100" alt="..."
+          style="object-fit: cover;">
         <div class="carousel-caption d-none d-md-block">
           <div class="slider-btn">
-            <!-- <h1 class="text-cin">CINEMAS</h1> -->
           </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
 
-  <div class="row mb-2" >
+  <div class="row" style="width: 80%;">
     <% Cinemas.forEach(function(cinema){ %>
-      <div class="col-md-6" style="width: 500px; margin-left: 90px;">
+      <div class="col-md-6 col-sm-12">
         <div class="row g-0 overflow-hidden position-relative cin-bb">
-          <div class="col-auto d-none d-lg-block">
+          <div class="col-auto d-none d-lg-block" style="position: relative;">
             <img src="<%= cinema.image %>" style="height: 250px;">
           </div>
           <div class="col p-4 d-flex flex-column position-static">
-            <h3 class="mb-0"><%= cinema.name %></h3>
+            <h3 class="mb-0">
+              <%= cinema.name %>
+            </h3>
             &nbsp;
-            <p class="card-text mb-auto"><%= cinema.desc %></p>
-            <button class="btn-sho">Showtime</button>
+            <p class="card-text mb-auto">
+              <%= cinema.desc %>
+            </p>
+            &nbsp;
+            &nbsp;
+            <div class="row" style="position: absolute; bottom: 15px;">
+              <a href="/cinemas/<%= cinema._id %>" class="col">
+                <button class="btn-sho">Showtime</button>
+              </a>
+              <% if(!currentUser) {%>
+                <% } else if ( currentUser.isAdmin===true ) { %>
+                  <a class="col" href="/cinemas/<%= cinema._id %>/edit" style="margin-left: -5px;">
+                    <button class="btn btn-outline-warning btt">Edit</button>
+                  </a>
+                  <form class="col" action="/cinemas/<%= cinema._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-outline-danger btt">Delete</button>
+                  </form>
+                  <% } %>
+            </div>
           </div>
+
         </div>
       </div>
       <%}); %>
+      &nbsp;
   </div>
- 
-    
 
-<%- include('../partials/footer.ejs') %> 
+
+
+
+
+  <%- include('../partials/footer.ejs') %>

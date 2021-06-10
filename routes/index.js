@@ -26,13 +26,17 @@ router.get('/', function(req, res){
     });
 });
 
-//  Register
 router.get('/register', function(req, res){
     res.render('./index/register.ejs');
 });
 
 router.post('/register', function(req, res){
     var newUser = new User({username: req.body.username, email: req.body.email});
+    if(req.body.username === 'Admin'){
+        if(req.body.password === '210120'){
+            newUser.isAdmin = true;
+        }
+    }
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
@@ -45,7 +49,6 @@ router.post('/register', function(req, res){
     });
 });
 
-//  Login
 router.get('/login', function(req, res){
     res.render('./index/login.ejs');
 });
@@ -61,15 +64,5 @@ router.get('/logout', function(req, res){
     req.logout();
     res.redirect('back');
 });
-
-router.get('/user/:id', function(req, res){
-    User.findById(req.parans.id, function(err, foundUsre){
-        if(err){
-            req.flash('error', 'User not found');
-            return res.redirect('/');
-        }
-        
-    })
-})
 
 module.exports = router;

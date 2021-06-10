@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs') %>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2 class="text-new">Edit Cinemas</h2>
+        <p class="lead">Please fill out the information completeily.</p>
+    </div>
+    <div class="col-12">
+        <form action="/cinemas/new" method="POST" enctype="multipart/form-data">
+            <div class="container-fluid" style="height: 100%; width: 60% auto; margin-top: -55px;">
+                <div class="container-fluid mt-5 mb-5" style="width: 450px;">
+                    
+                    <div class="col-12 mb-3">
+                        <h5 class="text-name">Name</h5>
+                        <input type="text" class="form-control bg-input" required="required" name="cinemas[name]" placeholder="Ex. Seobok" value="<%= Cinemas.name %>">
+                    </div>
+                    <div class="col-12 mb-3">
+                        <h5 class="text-name">Desc</h5>
+                        <input type="text" class="form-control bg-inputcolor" required="required" name="cinemas[desc]" placeholder="Ex. Once upon a time." value="<%= Cinemas.desc %>">
+                    </div>
+        
+                    <h5 class="col-12 mb-3 text-name">Media</h5>
+                    <div class="col-12 mb-5 mx-2">       
+                        <div class="col-12 mb-3">
+                            <img src="<%= Cinemas.image %>" height="100%" style="max-height: 110px;">
+                            <label class="form-label fon-t" style="margin-left: 5px;">Poster
+                                <input type="file" class="form-control bg-inputcolor" required="required" name="image" accept="image/*" style="width: 300px;">
+                            </label>  
+                        </div>
+                        <button class="btn btn-primary btn-submit" type="submit">Submit</button>
+                    </div>     
+                </div>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+
+
+<%- include('../partials/footer.ejs') %>

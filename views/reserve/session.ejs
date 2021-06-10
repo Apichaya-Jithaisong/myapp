@@ -1,0 +1,198 @@
+<%- include('../partials/header.ejs') %>
+
+<% var weekday = new Array(7), month = new Array(12); %>
+<% weekday[0] = "Sun", weekday[1] = "Mon", weekday[2] = "Tues", weekday[3] = "Wed", weekday[4] = "Thurs", weekday[5] = "Fri", weekday[6] = "Sat"; %>
+<% month[0] = "Jan", month[1] = "Feb",month[2] = "Mar", month[3] = "Apr", month[4] = "May", month[5] = "June", month[6] = "July", month[7] = "Aug", month[8] = "Sept", month[9] = "Oct", month[10] = "Nov", month[11] = "Dec";  %>
+<% var Time1 = new Date() %>
+
+<% var Time2 = new Date(Time1) %>
+<% Time2.setDate(Time2.getDate() + 1) %>
+
+<% var Time3 = new Date(Time2) %>
+<% Time3.setDate(Time3.getDate() + 1) %>
+
+<% var Time4 = new Date(Time3) %>
+<% Time4.setDate(Time4.getDate() + 1) %>
+
+<% var Time5 = new Date(Time4) %>
+<% Time5.setDate(Time5.getDate() + 1) %>
+
+<% var Time6 = new Date(Time5) %>
+<% Time6.setDate(Time6.getDate() + 1) %>
+
+<% var Day1 = Time1.getDay(), Month1 = Time1.getMonth(), Date1 = Time1.getDate(); %>
+<% var D1 = weekday[Day1] + ' ' + Date1 + ' ' + month[Month1]; %>
+
+<% var Day2 = Time2.getDay(), Month2 = Time2.getMonth(), Date2 = Time2.getDate(); %>
+<% var D2 = weekday[Day2] + ' ' + Date2 + ' ' + month[Month2]; %>
+
+<% var Day3 = Time3.getDay(), Month3 = Time3.getMonth(), Date3 = Time3.getDate(); %>
+<% var D3 = weekday[Day3] + ' ' + Date3 + ' ' + month[Month3]; %>
+
+<% var Day4 = Time4.getDay(), Month4 = Time4.getMonth(), Date4 = Time4.getDate(); %>
+<% var D4 = weekday[Day4] + ' ' + Date4 + ' ' + month[Month4]; %>
+
+<% var Day5 = Time5.getDay(), Month5 = Time5.getMonth(), Date5 = Time5.getDate(); %>
+<% var D5 = weekday[Day5] + ' ' + Date5 + ' ' + month[Month5]; %>
+
+<% var Day6 = Time6.getDay(), Month6 = Time6.getMonth(), Date6 = Time6.getDate(); %>
+<% var D6 = weekday[Day6] + ' ' + Date6 + ' ' + month[Month6]; %>
+
+<div class="container-fluid px-3 pt-2 nam-box">
+    <h1 class="box place-box">
+      <img
+        src="https://media.discordapp.net/attachments/718002735475064874/845974386439356466/image0.jpg?width=101&height=669"
+        height="35px" width="10px" style="margin-bottom: 7px;">
+      Booking at <%= Cinemas.name %>
+    </h1>
+</div>
+
+<div class="container-fluid px-3 pt-3 pic-box">   
+    <div class="center row cen-box">
+        <div class="col-md-6 pic-si">
+            <img class="mx-3" src="<%= Movies.image %>"  height="220px">
+        </div>
+        
+        <div class="col-md-6 sen-sto">
+            <h4><%= Movies.name %></h4>
+            <p><%= Movies.desc %></p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid pt-3 line-date">
+    <h4>
+        <div class="scrollmenu center row" style="width: 90%; background-color: rgba(255, 255, 255, 0);">
+            <button class="col-2 btn-day" type="button" onclick="check('<%= D1 %>');">
+                <%= D1 %>
+            </button>
+            <button class="col-2 btn-day" type="button" onclick="check('<%= D2 %>');">
+                <%= D2 %>
+            </button>
+            <button class="col-2 btn-day" type="button" onclick="check('<%= D3 %>');">
+                <%= D3 %>
+            </button>
+            <button class="col-2 btn-day" type="button" onclick="check('<%= D4 %>');">
+                <%= D4 %>
+            </button>
+            <button class="col-2 btn-day" type="button" onclick="check('<%= D5 %>');">
+                <%= D5 %>
+            </button>
+            <button class="col-2 btn-day" type="button" onclick="check('<%= D6 %>');">
+                <%= D6 %>
+            </button>
+            <input type="hidden" value="<%= D1 %>" name="sessionDate" id="selectDay">
+        </div>
+    </h4>
+</div>
+<div style="height: 6px;"></div>
+
+
+
+<form action="/session/<%= Cinemas.id %>/<%= Movies.id %>" method="POST">
+    <div class="container-fluid mt-3 tail-box">
+        <div class="row">
+            <div class="col container-fluid head-box">
+                <h5 class="center text-box-h">Theater 1</h5>
+                <div class="decoration-inside">
+                </div>
+            </div>
+            <div class="col-10 pt-3 px-5">
+                <button id="11" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="11:00">11:00</button>
+                <button id="15" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="15:00">15:00</button>
+                <button id="18" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="18:00">18:00</button>
+                <button id="21" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="21:00">21:00</button>
+            </div>  
+        </div>
+    </div>
+    <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay1">
+    <input type="hidden" name="session[theater]" value="1">
+</form> -->
+
+
+
+
+<form action="/session/<%= Cinemas.id %>/<%= Movies.id %>" method="POST" style="margin-top: -18px;">
+    <div class="container-fluid mt-3 tail-box">
+        <div class="row">
+            <div class="col container-fluid head-box">
+                <h5 class="center text-box-h">Theater 2</h5>
+                <div class="decoration-inside">
+                </div>
+            </div>
+            <div class="col-10 pt-3 px-5">
+                <button id="13" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="13:00">13:00</button>
+                <button id="16" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="16:00">16:00</button>
+            </div>  
+        </div>
+    </div>
+    <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay2">
+    <input type="hidden" name="session[theater]" value="2">
+</form>
+
+
+
+<script>
+    var weekday = new Array(7), month = new Array(12);
+    weekday[0] = "Sun", weekday[1] = "Mon", weekday[2] = "Tues", weekday[3] = "Wed", weekday[4] = "Thurs", weekday[5] = "Fri", weekday[6] = "Sat";
+    month[0] = "Jan", month[1] = "Feb",month[2] = "Mar", month[3] = "Apr", month[4] = "May", month[5] = "June", month[6] = "July", month[7] = "Aug", month[8] = "Sept", month[9] = "Oct", month[10] = "Nov", month[11] = "Dec";
+    var currentTime = new Date();
+    var hours = currentTime.getHours(), minutes = currentTime.getMinutes();
+    var todayDay = currentTime.getDay(), todayMonth = currentTime.getMonth(), todayDate = currentTime.getDate();
+    var today = weekday[todayDay] + ' ' + todayDate + ' ' + month[todayMonth];
+    var selectDay = document.getElementById("selectDay").value;
+    if ( today == selectDay ) {
+        if ( hours == 11 && minutes > 15 || hours > 11 ){
+            document.getElementById("11").disabled = true;
+        }
+        if ( hours >= 13 && minutes > 15 || hours > 13 ){
+            document.getElementById("13").disabled = true;
+        }
+        if ( hours >= 15 && minutes > 15 || hours > 15 ){
+            document.getElementById("15").disabled = true;
+        }
+        if ( hours >= 16 && minutes > 15 || hours > 16 ){
+            document.getElementById("16").disabled = true;
+        }
+        if ( hours >= 18 && minutes > 15 || hours > 18 ){
+            document.getElementById("18").disabled = true;
+        }
+        if ( hours >= 21 && minutes > 15 || hours > 21 ){
+            document.getElementById("21").disabled = true;
+        }
+    }
+    function check(checkSelectDay) {
+        if ( today == checkSelectDay ) {
+            if ( hours >= 11 && minutes > 15 || hours > 11 ){
+                document.getElementById("11").disabled = true;
+            }
+            if ( hours >= 13 && minutes > 15 || hours > 13 ){
+                document.getElementById("13").disabled = true;
+            }
+            if ( hours >= 15 && minutes > 15 || hours > 15 ){
+                document.getElementById("15").disabled = true;
+            }
+            if ( hours >= 16 && minutes > 15 || hours > 16 ){
+                document.getElementById("16").disabled = true;
+            }
+            if ( hours >= 18 && minutes > 15 || hours > 18 ){
+                document.getElementById("18").disabled = true;
+            }
+            if ( hours >= 21 && minutes > 15 || hours > 21 ){
+                document.getElementById("21").disabled = true;
+            }
+        } else if ( today != checkSelectDay ) {
+            document.getElementById("11").disabled = false;
+            document.getElementById("13").disabled = false;
+            document.getElementById("15").disabled = false;
+            document.getElementById("16").disabled = false;
+            document.getElementById("18").disabled = false;
+            document.getElementById("21").disabled = false;
+        }
+        document.getElementById("selectDay").value = checkSelectDay;
+        document.getElementById("selectDay1").value = checkSelectDay;
+        document.getElementById("selectDay2").value = checkSelectDay;
+    }
+</script>
+
+<%- include('../partials/footer.ejs') %>

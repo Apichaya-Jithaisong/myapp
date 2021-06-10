@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs') %>
 <div class="container">
     <div class="py-5 text-center">
-        <h2 class="text-new">New Movies</h2>
+        <h2 class="text-new">Edit Movies</h2>
         <p class="lead">Please fill out the information completeily.</p>
     </div>
     <div class="col-12">
@@ -44,14 +44,10 @@
                     <h5 class="col-12 mb-3 text-name">Media</h5>
                     <div class="col-12 mb-5 mx-2">       
                         <div class="col-12 mb-3">
-                            <label class="form-label fon-t">Poster</label>
-                            <img src="<%= Movies.image %>" height="300px" style="object-fit: cover;">
-                            <input type="file" class="form-control bg-inputcolor" name="image" accept="image/*">
-                        </div>
-                        <div class="col-12 mb-3">
-                            <label class="form-label fon-t">Logo</label>
-                            <img src="<%= Movies.logo %>" height="300px" style="object-fit: cover;">
-                            <input type="file" class="form-control bg-inputcolor" name="logo" accept="image/*">
+                            <img src="<%= Movies.image %>" height="100%" style="max-height: 150px;">
+                            <label class="form-label fon-t" style="margin-left: 5px;">Poster
+                                <input type="file" class="form-control bg-inputcolor" name="image" accept="image/*" style="width: 300px;">
+                            </label>
                         </div>
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Trailer</label>
