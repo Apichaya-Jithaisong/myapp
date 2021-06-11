@@ -76,19 +76,16 @@ router.get('/:id/edit', middleware.checkAdmin,  function(req, res){
     });
 });
 
-router.put('/:id', upload.fields([{ name: 'image' }, { name: 'logo' }]), function(req, res){
-    if ( req.files['image'] ){
-        req.body.movies.image = '/images/movies/uploads/' + req.files['image'][0].filename;
+router.put('/:id', upload.single('image'), function(req, res){
+    if ( req.file ){
+        req.body.cinemas.image = '/images/cinemas/uploads/' + req.file.filename;
     }
-    if ( req.files['logo'] ){
-        req.body.movies.logo = '/images/movies/uploads/' + req.files['logo'][0].filename;
-    }
-    Movies.findByIdAndUpdate(req.params.id, req.body.movies, function( err, updatedMovies ){
+    Cinemas.findByIdAndUpdate(req.params.id, req.body.cinemas, function( err, updatedMovies ){
         if(err) {
             console.log(err);
-            res.redirect('/movies/')
+            res.redirect('/cinemas/')
         } else {
-            res.redirect('/movies/' + req.params.id);
+            res.redirect('/cinemas/' + req.params.id);
         }
     });
 });

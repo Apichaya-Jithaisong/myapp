@@ -41,17 +41,22 @@ router.get('/:id', middleware.checkProfileOwner, function (req, res) {
 
 //  Change profile pic
 router.post('/:id', middleware.checkProfileOwner, upload.single('image'), function (req, res){
-    User.findByIdAndUpdate(req.params.id,
-        {
-            profileImage: '/images/user/' + req.file.filename
-        },
-        function (err, result) {
-            if (err) {
-                console.log(err);
-            } else {
-                res.redirect('back');
-            }
+    if ( req.file ){
+        User.findByIdAndUpdate(req.params.id,
+            {
+                profileImage: '/images/user/' + req.file.filename
+            },
+            function (err, result) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.redirect('back');
+                }
         });
+    }
+    else {
+        res.redirect('back');
+    }
 });
 //  End of Change profile pic
 

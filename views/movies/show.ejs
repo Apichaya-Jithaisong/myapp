@@ -168,14 +168,53 @@
                                 <button type="submit" class="btn btn-primary btn-su">Submit</button>
                             </div>
                         </form>
-                        
-                       
                     </div>
-                    <% } %>
+                <% } %>
       
             &nbsp;
-            <% Movies.comments.forEach(function(comment){ %>
+            <% var i = 0; Movies.comments.forEach(function(comment){ %>
                 <div class="card card-cover text-white shadow-lg p-2 bg-texycom">
+                    <% if(!currentUser) {%>
+                    <% } else if ( currentUser.isAdmin == true || currentUser._id.equals(comment.author.id) ) { %>
+                        <div class="container-fluid" style="position: relative;">
+                            <div style="top: 0px; right: 0px; position: absolute;">
+                                <% if ( currentUser._id.equals(comment.author.id) ) { %>
+                                <button type="button" class="mx-3 btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editModal<%= i %>">Edit</button>
+                                <div class="modal fade" id="editModal<%= i %>" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content" style="background-color: rgb(26, 26, 26);">
+                                            <div class="modal-header" style="border-bottom: none;">
+                                                <h2 class="text-new">Edit Comment</h2>
+                                            </div>
+                                            <form action="/movies/<%= Movies._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                                                <div class="modal-body" style="color: black;">
+                                                    <div class="container-fluid" style="height: 100%; width: 60% auto; margin-top: -55px;">
+                                                        <div class="container-fluid mt-5 mb-5" style="width: 450px;">
+                                                            <div class="col-12 mb-3">
+                                                                <h5 class="text-name">Author <%= comment.author.username %></h5>
+                                                            </div>
+                                                            <div class="col-12 mb-3">
+                                                                <h5 class="text-name">Desc</h5>
+                                                                <input type="text" class="form-control bg-inputcolor" required="required" name="comment[text]" placeholder="<%= comment.text %>" value="<%= comment.text %>">
+                                                            </div>    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer" style="border-top: none;">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>                         
+                                                    <button type="submit" class="btn btn-success">Confirm</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <% } %>
+                                <form action="/movies/<%= Movies._id %>/comments/<%= comment._id %>/?_method=DELETE" style="display: inline-block;" method="POST">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    <% } %>
                     <div style="height: 10px;"></div>
                     <p>
                         <strong style="font-family: 'Cinzel', serif; font-size: 18px;">&nbsp;&emsp;<%= comment.author.username %></strong>
@@ -186,7 +225,7 @@
                         </p>
                 </div>
                 &nbsp;
-                <% }); %>
+                <% i++; }); %>
 
                     
         </div>
