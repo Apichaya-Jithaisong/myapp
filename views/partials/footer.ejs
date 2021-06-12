@@ -19,10 +19,33 @@
         Search.classList.remove('hidden');
     }
 
+    function sooncome(event){
+        const cik = document.getElementById('cik-cik');
+        const cok = document.getElementById('cok-cok');
+        const text = document.getElementById('coom');
+
+        owo = !owo;
+        if(owo){
+            cik.classList.remove('hidden');
+            cok.classList.add('hidden');
+            text.textContent = '\xa0Now Showing';
+        }else {
+            cik.classList.add('hidden');
+            cok.classList.remove('hidden');
+            text.textContent = 'Coming  Soon';
+        }
+    }
+
+
+    let owo = false;
+
     const searchh = document.querySelector('.search_btn');
     searchh.addEventListener('click', searchUp);
     const cross = document.querySelector('.close');
     cross.addEventListener('click', closeUp);
+
+    const soon = document.getElementById('coom');
+    soon.addEventListener('click', sooncome);
 </script>
 
 </body>

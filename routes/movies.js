@@ -30,8 +30,14 @@ router.get('/', function(req,res){
     Movies.find({show: 'y'}, function(err, allMovies){
         if(err){
             console.log(err);
-        } else {        
-            res.render('./movies/movies.ejs', {Movies: allMovies, sort: 'All Movies'});
+        } else {  
+            Movies.find({show: 'n'}, function(err, comeMovies){
+                if(err){
+                    console.log(err);
+                } else {       
+                    res.render('./movies/movies.ejs', {Movies: allMovies, ComeMovie: comeMovies, sort: 'All Movies'});
+                }
+            });
         }
     });
 });
@@ -138,11 +144,17 @@ router.get('/search/:name', function(req,res){
 // });
 
 router.get('/genre/:genre', function(req, res){
-    Movies.find({genre: new RegExp(req.params.genre, 'i')}, function(err, foundMovie){
+    Movies.find({genre: new RegExp(req.params.genre, 'i'), show: "y"}, function(err, foundMovie){
         if(err){
             console.log(err);
         } else {
-            res.render('movies/movies.ejs', {Movies: foundMovie, sort: req.params.genre});
+            Movies.find({genre: new RegExp(req.params.genre, 'i'), show: 'n'}, function(err, comeMovies){
+                if(err){
+                    console.log(err);
+                } else {       
+                    res.render('./movies/movies.ejs', {Movies: foundMovie, ComeMovie: comeMovies, sort: req.params.genre});
+                }
+            });
         }
     });
 });

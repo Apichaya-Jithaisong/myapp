@@ -42,7 +42,7 @@
   </div>
 
   <div class="row" style="width: 80%;">
-    <% Cinemas.forEach(function(cinema){ %>
+    <% var i = 0; Cinemas.forEach(function(cinema){ %>
       <div class="col-md-6 col-sm-12">
         <div class="row g-0 overflow-hidden position-relative cin-bb">
           <div class="col-auto d-none d-lg-block" style="position: relative;">
@@ -68,7 +68,24 @@
                     <button class="btn btn-outline-warning btt">Edit</button>
                   </a>
                   <form class="col" action="/cinemas/<%= cinema._id %>?_method=DELETE" method="POST">
-                    <button class="btn btn-outline-danger btt">Delete</button>
+                    <button type="button" class="btn btn-outline-danger btt" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
+                    <div class="modal fade" id="deleteModal<%= i %>" tabindex="-1">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title ed-mol">Delete Cinemas</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                              </div>
+                              <div class="modal-body" style="color: black;">
+                                  Are you sure you want to delete <%= cinema.name %> ?
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>                         
+                                  <button type="submit" class="btn btn-conf">Confirm</button>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
                   </form>
                   <% } %>
             </div>
@@ -76,7 +93,7 @@
 
         </div>
       </div>
-      <%}); %>
+      <% i++; }); %>
       &nbsp;
   </div>
 

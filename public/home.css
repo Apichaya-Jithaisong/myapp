@@ -150,7 +150,8 @@ body
     padding-top: 80px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 60px;
-    color: aliceblue; 
+    color: aliceblue;
+    position: relative;
 }
 .bg-image{
     background-image: url("/images/movies/bg-movie.jpeg");
@@ -160,6 +161,23 @@ body
     background-size: cover;
     position: relative;
 }
+.box-box{
+    /* padding-bottom: 20px;  */
+    display: inline-block;
+}
+
+.box-roow{
+    width: 100%; 
+    /* height: 10px;  */
+    display: inline-block;
+    background-color: #0b75cc;
+}
+
+.box-soon{
+    position: relative; 
+    bottom: 10px;
+}
+
 .sel-btn{
     border: 2px solid white;
     border-radius: 9px;
@@ -377,7 +395,7 @@ body
     background: linear-gradient( 45deg, #f832e8, #8d35f1d7, #1e93f3, #0b75cc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 35px;
+    font-size: 29px;
     font-weight: bold;
     font-family: 'Playfair Display', serif;
 }
@@ -600,3 +618,152 @@ div.scrollmenu {
 .des-sele p {
     font-size: 17px;
 }
+
+#summ{
+    background: linear-gradient( 45deg, #3586f1d7, #1e93f3, #0b75cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2vw;
+    margin-top: 10px;
+}
+
+.text-res{
+    display: inline; 
+    font-family: 'Merriweather Sans', sans-serif; 
+    color: white;
+    font-size: 20px;
+}
+
+.seat-thb{
+    color: #fff;
+    font-size: 1.6vw;
+    text-align: left;
+    padding-left: 16%;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#seat{
+    background: linear-gradient( 27deg, #8d35f1d7, #1e93f3, #1889e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#price{
+    background: linear-gradient( 27deg, #8d35f1d7, #1e93f3, #1889e6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-wow{
+    text-align: center;
+    margin-top: 15px;
+    width: 45%;
+    height: 40px;
+    font-size: 1vw;
+    background: linear-gradient( 45deg, #3586f1d7, #1e93f3, #0b75cc);
+}
+
+.pp-wow{
+    position: relative; 
+    height: 80px;  
+    text-align: center;
+    margin-top: 10px;
+}
+
+.scre-bo{
+    text-align: center; 
+    border: none;
+    width: 50%;
+    height: 40px;
+    padding-top: 10px;
+    color: #fff;
+    background: linear-gradient( 90deg, #0d2d57d7, #1e93f3, #0b75cc, #0d2d57d7);
+    border-bottom-right-radius: 150%;
+    border-bottom-left-radius: 150%;
+}
+
+.btn-se-tt{
+    background: transparent;
+    border: none;
+    height: 35px;
+}
+
+.btn-se-a{
+    background: transparent;
+    border: none;
+    height: 35px;
+    margin-left: 6px;
+}
+
+.si-seat{
+    height: 35px;
+}
+
+/*-----------------------------------End-----------------------------------*/
+/*---------------------------------Modal-----------------------------------*/
+.dec-oo{
+    font-size: 18px;
+}
+
+.ed-mol{
+    background: linear-gradient( 45deg, #1e93f3, #0b75cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-conf{
+    background-color: #1e93f3;
+    color: #fff;
+}
+.btn-conf:hover{
+    color: #fff;
+    background-color: #1984db;
+}
+
+.ed-moll{
+    background: linear-gradient( 45deg, #1e93f3, #0b75cc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+/*-----------------------------------End-----------------------------------*/
+/*--------------------------------Profile-----------------------------------*/
+.btn-pro{
+    height: 30px; 
+    width: 70px; 
+    margin-top: 11px; 
+    font-size: 12px;
+    border: none;
+    color: #fff;
+    background: linear-gradient( 27deg, #23b7f1da 20%, #1e93f3dc 50%, #128df1e5 100%);
+    box-shadow: rgba(0, 0, 0, 0.452) 0px 54px 55px, rgba(0, 0, 0, 0.418) 0px -12px 30px, rgba(0, 0, 0, 0.438) 0px 4px 6px, rgba(0, 0, 0, 0.555) 0px 12px 13px, rgba(0, 0, 0, 0.521) 0px -3px 5px;
+}
+.btn-pro:hover{
+    color: #fff;
+    background: linear-gradient( 27deg, #20a6dbda 20%, #1b84dadc 50%, #117cd4e5 100%);
+}
+
+.pro-tt{
+    font-size: 23px; 
+    display: inline;
+}
+
+.pro-aa{
+    display: inline; 
+    font-family: 'Source Sans Pro', sans-serif; 
+    font-size: 24px;
+}
+
+.text-fa{
+    background: linear-gradient( 45deg, #8d35f1d7, #1e93f3, #0b75cc);
+    font-size: 40px;
+    font-weight: bold;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
