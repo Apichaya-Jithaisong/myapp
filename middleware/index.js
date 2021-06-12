@@ -15,7 +15,7 @@ middlewareObj.checkAdmin = function(req, res, next){
         User.findById(req.user._id, function(err, currentUser){
             if(err){
                 // req.flash('error', 'You can not acess this page!');
-                res.redirect('back');
+                res.redirect('/');
             } else {
                 if( currentUser.isAdmin == true ){
                     return next();
@@ -24,7 +24,7 @@ middlewareObj.checkAdmin = function(req, res, next){
         });
     } else {
         // req.flash('error', 'You need to sign in first!');
-        res.redirect('back');
+        res.redirect('/');
     }
 };
 
