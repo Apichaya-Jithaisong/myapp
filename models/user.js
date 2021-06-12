@@ -5,7 +5,7 @@ var userSchema = new mongoose.Schema({
     username: String,
     password: String,
     email: String,
-    profileImage: {type: String, default: '/images/user/default.png'},
+    profileImage: {type: String, default: '/images/user/default1.png'},
     isAdmin: {type: Boolean, default: false},
     likes : [
         {
