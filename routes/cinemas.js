@@ -38,8 +38,11 @@ router.get('/new', middleware.checkAdmin, function(req,res){
     res.render('./cinemas/new.ejs');
 });
 
-router.post('/new', upload.single('image'), function(req, res){
-    req.body.cinemas.image = '/images/cinemas/uploads/' + req.file.filename;
+router.post('/new', upload.fields([{ name: 'image' }, { name: 'image2' }, { name: 'image3' }, { name: 'image4' }]), function(req, res){
+    req.body.cinemas.image = '/images/cinemas/uploads/' + req.files['image'][0].filename;
+    req.body.cinemas.image2 = '/images/cinemas/uploads/' + req.files['image2'][0].filename;
+    req.body.cinemas.image3 = '/images/cinemas/uploads/' + req.files['image3'][0].filename;
+    req.body.cinemas.image4 = '/images/cinemas/uploads/' + req.files['image4'][0].filename;
     Cinemas.create(req.body.cinemas, function(err, newCinemas){
         if(err){
             console.log(err);
@@ -54,7 +57,7 @@ router.get('/:id', function(req,res){
         if(err){
             console.log(err);
         } else {
-            Movies.find({}, function(err, allMovies){
+            Movies.find({show: 'y'}, function(err, allMovies){
                 if(err){
                     console.log(err);
                 } else {
@@ -76,9 +79,18 @@ router.get('/:id/edit', middleware.checkAdmin,  function(req, res){
     });
 });
 
-router.put('/:id', upload.single('image'), function(req, res){
-    if ( req.file ){
-        req.body.cinemas.image = '/images/cinemas/uploads/' + req.file.filename;
+router.put('/:id', upload.fields([{ name: 'image' }, { name: 'image2' }, { name: 'image3' }, { name: 'image4' }]), function(req, res){
+    if ( req.files['image'] ){
+        req.body.cinemas.image = '/images/cinemas/uploads/' + req.files['image'][0].filename;
+    }
+    if ( req.files['image2'] ){
+        req.body.cinemas.image2 = '/images/cinemas/uploads/' + req.files['image2'][0].filename;
+    }
+    if ( req.files['image3'] ){
+        req.body.cinemas.image3 = '/images/cinemas/uploads/' + req.files['image3'][0].filename;
+    }
+    if ( req.files['image4'] ){
+        req.body.cinemas.image4 = '/images/cinemas/uploads/' + req.files['image4'][0].filename;
     }
     Cinemas.findByIdAndUpdate(req.params.id, req.body.cinemas, function( err, updatedMovies ){
         if(err) {

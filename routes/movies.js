@@ -174,8 +174,8 @@ router.post('/:id/like', middleware.isLoggedIn, function(req, res){
                             console.log(err);
                         } else {
                             like.movies.id      = req.params.id;
-                            like.movies.logo    = foundMovies.logo;
-                            like.movies.banner    = foundMovies.banner;
+                            like.movies.name    = foundMovies.name;
+                            like.movies.image    = foundMovies.image;
                             like.save();
                             foundUsers.likes.push(like);
                             foundUsers.save();
