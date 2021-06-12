@@ -1,36 +1,45 @@
 <%- include('../partials/header.ejs') %>
 
-<div class="container-fluid" style="background-color: #0c0041;">
-    <div class="row">
-        <div class="col">
-            <img src="<%= Cinemas.image %>" width="850" height="450">
-        </div>
-        <div class="col pt-5 text-center">
-            <ul style="list-style-type: none; color: white;">
-                <div class="container-fluid" style="height: 220px;">
-                    <li class="mt-3 mb-5"><img src="<%= Cinemas.logo %>" width="350px" height="200px" style="object-fit: contain;"></li>
-                </div>
-                <div class="container-fluid" style="height: 150px;">
-                    <li><h5><%= Cinemas.slogan %></h5></li>
-                </div>
-            </ul>
-        </div>
-    </div>
-
-    <div class="container-fluid" style="height: 20px; background-color: #0c0041;"></div>
+<div class="py-5 text-center">
+  <h2 class="text-showcin"><%= Cinemas.name %></h2>
+  <p class="lead"><%= Cinemas.desc %></p>
 </div>
 
-<!-- Now showing -->
-<!-- Banner -->
-<div class="container-fluid bg-dark px-3 pt-4" style="height: 75px;">
+<div class="album py-5" style="margin-top: -60px;">
+  <div class="container" style="overflow: hidden;">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <div class="col">
+        <div class="card shadow-sm" style="background: transparent; height: 200px;  width: 400px; overflow: hidden;">
+          <img src="https://i.pinimg.com/564x/0e/af/b0/0eafb0fa2a54fdaf3e0d14cc645f8a61.jpg" >
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm" style="background: transparent; height: 200px;  width: 400px; overflow: hidden;">
+          <img src="https://i.pinimg.com/564x/14/d9/d6/14d9d604d3bae5b1a4bb5ba58c2d79d1.jpg"  > 
+        </div>
+      </div>
+      <div class="col">
+        <div class="card shadow-sm" style="background: transparent; height: 200px;  width: 400px; overflow: hidden;">
+          <img src="https://i.pinimg.com/564x/b6/3c/f6/b63cf62d661b5110f7deaafdf087dbe5.jpg"  >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="container-fluid bg-dark px-3 pt-4" style="height: 75px;">
     <h5 style="color: white; text-transform: uppercase;">
         &emsp;
       Now showing
     </h5>
-</div>
-<!-- End of Banner -->
-
-<div class="container" style="width: 70%; margin-left: 13.5%; margin-top: 30px;">
+</div> -->
+<div class="py-5 boxx-cendown" style="background-color: rgba(0, 0, 0, 0.5);">
+  <h2>NOW SHOWING</h2>
+  <br>
+  <br>
+  <div class="container" style="width: 70%; margin-left: 13.5%; margin-top: 30px;">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="position: relative;">
       <% Movies.forEach(function(movie){ %>
         <div class="col" style="width: 200px; margin: 0px auto;">
@@ -50,6 +59,11 @@
       <%}); %>
     </div>
   </div>
-<!-- End of Now showing -->
+</div>
+
+
+
+
+
 
 <%- include('../partials/footer.ejs') %>

@@ -765,5 +765,51 @@ div.scrollmenu {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+/*-----------------------------------End-----------------------------------*/
+/*-------------------------------My tickct---------------------------------*/
+.bg-www{
+    width: 350px; 
+    margin-bottom: 20px;
+    color: #fff;
+    background: linear-gradient( 45deg, #0e2544d7, #0e2544d7, #0d2d57d7, #0b213dd7);
+    left: 12%;
+}
 
+.text-haaa{
+    margin-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #fff;
+    font-size: 19px;
+    /* margin-left: -10px; */
+    text-align: center;
+}
 
+.text-hooo{
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-left: -3px;
+}
+/*-----------------------------------End-----------------------------------*/
+/*-------------------------------Show Cinemas------------------------------*/
+.text-showcin{
+    background: linear-gradient( 45deg, #1e93f3, #0b75cc);
+    font-size: 50px;
+    font-weight: bold;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform:uppercase;
+    margin-top: -20px;
+}
+
+.boxx-cendown{
+    text-align: center;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    margin-top: -10px;
+}
+
+.boxx-cendown h2{
+    font-size: 30px;
+    margin-top: -15px;
+    
+}

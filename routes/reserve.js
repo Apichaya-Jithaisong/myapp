@@ -70,6 +70,18 @@ router.post('/:id', middleware.isLoggedIn, function(req, res){
                     if( req.body.B4 == 'y') {
                         reserveSeat('B4', reserve._id);
                     }
+                    if( req.body.C1 == 'y') {
+                        reserveSeat('C1', reserve._id);
+                    }
+                    if( req.body.C2 == 'y') {
+                        reserveSeat('C2', reserve._id);
+                    }
+                    if( req.body.C3 == 'y') {
+                        reserveSeat('C3', reserve._id);
+                    }
+                    if( req.body.C4 == 'y') {
+                        reserveSeat('C4', reserve._id);
+                    }
 
                     res.redirect('/user/' + req.user._id + '/ticket');
                     

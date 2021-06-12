@@ -135,6 +135,49 @@
                             <% } %>
                         </div>   
                     </div>
+
+                    <div class="row" style="margin-top: 20px;">
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('C1') ) { %>
+                                <button type="button" class="btn-se-tt" name="C1" value="n" onclick="reserve('C1')">
+                                    <img class="si-seat" id="C1" src="/images/reserve/seat.jpg">
+                                    <input type="hidden" name="C1" id="iC1" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat btn-se-a"src="/images/reserve/seat.jpg" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('C2') ) { %>
+                                <button type="button" class="btn-se-tt" name="C2" value="n" onclick="reserve('C2')">
+                                    <img class="si-seat" id="C2" src="/images/reserve/seat.jpg">
+                                    <input type="hidden" name="C2" id="iC2" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat btn-se-a"src="/images/reserve/seat.jpg" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('C3') ) { %>
+                                <button type="button" class="btn-se-tt" name="C3" value="n" onclick="reserve('C3')">
+                                    <img class="si-seat" id="C3" src="/images/reserve/seat.jpg">
+                                    <input type="hidden" name="C3" id="iC3" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat btn-se-a"src="/images/reserve/seat.jpg" style="opacity: 0.1;">
+                            <% } %>
+                        </div>
+                        <div class="col-3">
+                            <% if ( Session.seats.includes('C4') ) { %>
+                                <button type="button" class="btn-se-tt" name="C4" value="n" onclick="reserve('C4')">
+                                    <img class="si-seat" id="C4" src="/images/reserve/seat.jpg">
+                                    <input type="hidden" name="C4" id="iC4" value="n">
+                                </button>
+                            <% } else { %>
+                                <img class="seat btn-se-a"src="/images/reserve/seat.jpg" style="opacity: 0.1;">
+                            <% } %>
+                        </div>   
+                    </div>
                     
                 </div>
                 
@@ -150,7 +193,24 @@
                     THB
                 </h1>
                 <div class="pp-wow">
-                    <button id="submit" type="submit" class="btn btn-primary seat-submit btn-wow">Continue</button>
+                    <button id="submit" type="button" class="btn btn-primary seat-submit btn-wow" data-bs-toggle="modal" data-bs-target="#editModal">Continue</button>
+                        <div class="modal fade" id="editModal" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title ed-mol" >Confirmation of booking</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body" style="color: black;">
+                                        Are you sure to book tickets ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>                         
+                                        <button type="submit" class="btn btn-conf">Confirm</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
  

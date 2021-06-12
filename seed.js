@@ -6,21 +6,33 @@ var cinemasdata = [
     {
         name: "Imove Paragon",
         image: "/images/cinemas/cine-paragon.jpg",
+        image2: "/images/cinemas/paragon/1-paragon.jpg",
+        image3: "/images/cinemas/paragon/2-paragon.jpg",
+        image4: "/images/cinemas/paragon/3-paragon.jpg",
         desc: "The ultimate landscape of entertainment culture.  Experience a superior movie theater at Paragon, 5th floor.",
     },
     {
         name: "Imove Iconsiam",
         image: "/images/cinemas/cine-iconsaim.jpg",
+        image2: "/images/cinemas/iconsiam/1-icon.jpg",
+        image3: "/images/cinemas/iconsiam/2-icon.jpg",
+        image4: "/images/cinemas/iconsiam/3-icon.jpg",
         desc: "The ultimate landscape of entertainment culture.  Experience a superior movie theater at Iconsiam, 5th floor.",
     },
     {
         name: "Imove WestGate",
         image: "/images/cinemas/cine-weatgate.jpg",
+        image2: "/images/cinemas/westgate/1-westgate.jpg",
+        image3: "/images/cinemas/westgate/2-westgate.jpg",
+        image4: "/images/cinemas/westgate/3-westgate.jpg",
         desc: "The ultimate landscape of entertainment culture.  Experience a superior movie theater at CentralPlaza WestGate, 5th floor.",
     },
     {
         name: "Imove Pinklao",
         image: "/images/cinemas/cine-pinklao.jpg",
+        image2: "/images/cinemas/pinklao/1-pinklao.jpg",
+        image3: "/images/cinemas/pinklao/2-pinklao.jpg",
+        image4: "/images/cinemas/pinklao/3-pinklao.jpg",
         desc: "The ultimate landscape of entertainment culture.  Experience a superior movie theater at Pinklao, 5th floor.",
     },
     
