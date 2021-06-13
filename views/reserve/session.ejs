@@ -107,9 +107,7 @@
     </div>
     <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay1">
     <input type="hidden" name="session[theater]" value="1">
-</form> -->
-
-
+</form>
 
 
 <form action="/session/<%= Cinemas.id %>/<%= Movies.id %>" method="POST" style="margin-top: -18px;">
@@ -123,6 +121,7 @@
             <div class="col-10 pt-3 px-5">
                 <button id="13" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="13:00">13:00</button>
                 <button id="16" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="16:00">16:00</button>
+                <button id="19" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="19:00">19:00</button>
             </div>  
         </div>
     </div>
@@ -130,6 +129,24 @@
     <input type="hidden" name="session[theater]" value="2">
 </form>
 
+
+<form action="/session/<%= Cinemas.id %>/<%= Movies.id %>" method="POST" style="margin-top: -18px;">
+    <div class="container-fluid mt-3 tail-box">
+        <div class="row">
+            <div class="col container-fluid head-box">
+                <h5 class="center text-box-h">Theater 3</h5>
+                <div class="decoration-inside">
+                </div>
+            </div>
+            <div class="col-10 pt-3 px-5">
+                <button id="12" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="12:00">12:00</button>
+                <button id="14" type="submit" name="session[time]" class="sessionTimeButton btn-time" value="14:00">14:00</button>
+            </div>  
+        </div>
+    </div>
+    <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay3">
+    <input type="hidden" name="session[theater]" value="3">
+</form>
 
 
 <script>
@@ -145,8 +162,14 @@
         if ( hours == 11 && minutes > 15 || hours > 11 ){
             document.getElementById("11").disabled = true;
         }
+        if ( hours >= 12 && minutes > 15 || hours > 12 ){
+            document.getElementById("12").disabled = true;
+        }
         if ( hours >= 13 && minutes > 15 || hours > 13 ){
             document.getElementById("13").disabled = true;
+        }
+        if ( hours >= 14 && minutes > 15 || hours > 14 ){
+            document.getElementById("14").disabled = true;
         }
         if ( hours >= 15 && minutes > 15 || hours > 15 ){
             document.getElementById("15").disabled = true;
@@ -157,6 +180,9 @@
         if ( hours >= 18 && minutes > 15 || hours > 18 ){
             document.getElementById("18").disabled = true;
         }
+        if ( hours >= 19 && minutes > 15 || hours > 19 ){
+            document.getElementById("19").disabled = true;
+        }
         if ( hours >= 21 && minutes > 15 || hours > 21 ){
             document.getElementById("21").disabled = true;
         }
@@ -166,8 +192,14 @@
             if ( hours >= 11 && minutes > 15 || hours > 11 ){
                 document.getElementById("11").disabled = true;
             }
+            if ( hours >= 12 && minutes > 15 || hours > 12 ){
+            document.getElementById("12").disabled = true;
+        }
             if ( hours >= 13 && minutes > 15 || hours > 13 ){
                 document.getElementById("13").disabled = true;
+            }
+            if ( hours >= 14 && minutes > 15 || hours > 14 ){
+                document.getElementById("14").disabled = true;
             }
             if ( hours >= 15 && minutes > 15 || hours > 15 ){
                 document.getElementById("15").disabled = true;
@@ -178,20 +210,27 @@
             if ( hours >= 18 && minutes > 15 || hours > 18 ){
                 document.getElementById("18").disabled = true;
             }
+            if ( hours >= 19 && minutes > 15 || hours > 19 ){
+                document.getElementById("19").disabled = true;
+            }
             if ( hours >= 21 && minutes > 15 || hours > 21 ){
                 document.getElementById("21").disabled = true;
             }
         } else if ( today != checkSelectDay ) {
             document.getElementById("11").disabled = false;
+            document.getElementById("12").disabled = false;
             document.getElementById("13").disabled = false;
+            document.getElementById("14").disabled = false;
             document.getElementById("15").disabled = false;
             document.getElementById("16").disabled = false;
             document.getElementById("18").disabled = false;
+            document.getElementById("19").disabled = false;
             document.getElementById("21").disabled = false;
         }
         document.getElementById("selectDay").value = checkSelectDay;
         document.getElementById("selectDay1").value = checkSelectDay;
         document.getElementById("selectDay2").value = checkSelectDay;
+        document.getElementById("selectDay3").value = checkSelectDay;
     }
 </script>
 

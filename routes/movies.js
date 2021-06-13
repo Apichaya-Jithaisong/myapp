@@ -46,9 +46,8 @@ router.get('/new', middleware.checkAdmin, function(req,res){
     res.render('./movies/new.ejs');
 });
 
-router.post('/new', upload.fields([{ name: 'image' }, { name: 'logo' }, { name: 'banner' } ]), function(req, res){
-    req.body.movies.image = '/images/movies/uploads/' + req.files['image'][0].filename;
-    req.body.movies.logo = '/images/movies/uploads/' + req.files['logo'][0].filename;
+router.post('/new', upload.single('image'),  function(req, res){
+    req.body.movies.image = '/images/movies/uploads/' + req.file.filename;
     Movies.create(req.body.movies, function(err, newMovies){
         if(err){
             console.log(err);
@@ -69,12 +68,9 @@ router.get('/:id/edit', middleware.checkAdmin,  function(req, res){
     });
 });
 
-router.put('/:id', upload.fields([{ name: 'image' }, { name: 'logo' }]), function(req, res){
-    if ( req.files['image'] ){
-        req.body.movies.image = '/images/movies/uploads/' + req.files['image'][0].filename;
-    }
-    if ( req.files['logo'] ){
-        req.body.movies.logo = '/images/movies/uploads/' + req.files['logo'][0].filename;
+router.put('/:id', upload.single('image'), function(req, res){
+    if ( req.file ){
+        req.body.movies.image = '/images/movies/uploads/' + req.file.filename;
     }
     Movies.findByIdAndUpdate(req.params.id, req.body.movies, function( err, updatedMovies ){
         if(err) {
@@ -125,7 +121,7 @@ router.get('/search/:name', function(req,res){
         if(err){
             console.log(err);
         } else {
-            res.render('./movies/movies.ejs', {Movies: foundMovies});
+            res.render('./movies/movies.ejs', {Movies: foundMovies, sort: null});
         }
     });
 });

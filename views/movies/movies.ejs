@@ -1,5 +1,6 @@
 <%- include('../partials/header.ejs') %>
 
+<% if (sort != null) { %>
   <div class="container-fluid bg-image">
     <div id="headerMovie">
       MOVIE
@@ -31,6 +32,8 @@
         <% } %>
     </div>
   </div>
+<% } %>
+
   <!------------------Movies---------------------->
   <div class="container" id="cok-cok" style="width: 70%; margin-left: 13.5%; margin-top: 30px;">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="position: relative;">
@@ -102,7 +105,7 @@
     </div>
   </div>
 
-
+<% if (sort != null) { %>
   <!------------------Soon Movies---------------------->
   <div class="container hidden" id="cik-cik" style="width: 55%; margin-left: 20%; margin-top: 30px; ">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -173,4 +176,5 @@
       <%}); %>
     </div>
   </div>
+  <% } %>
   <%- include('../partials/footer.ejs') %>
