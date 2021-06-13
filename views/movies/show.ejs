@@ -72,11 +72,14 @@
                                             </button>
                                         </form>
                                     </div>
-                                    <div class="col-6">
-                                        <form action="/login">
-                                            <button type="submit" class="btn btn-primary btn-bs">Booking</button>
-                                        </form>
-                                    </div> 
+                                    <% if(Movies.show === 'y') { %>
+                                        <div class="col-6">
+                                            <form action="/login">
+                                                <button type="submit" class="btn btn-primary btn-bs">Booking</button>
+                                            </form>
+                                        </div> 
+                                    <% } %>
+                                    
                                 </div>
                                 
                             <% } else { %>
@@ -91,9 +94,11 @@
                                                 </button>
                                             </form>
                                         </div>
-                                        <div class="col-6">
-                                            <button type="button" class="btn btn-primary btn-bs" data-bs-toggle="modal" data-bs-target="#reserveModal">Booking</button>
-                                        </div>
+                                        <% if(Movies.show === 'y') { %>
+                                            <div class="col-6">
+                                                <button type="button" class="btn btn-primary btn-bs" data-bs-toggle="modal" data-bs-target="#reserveModal">Booking</button>
+                                            </div>
+                                        <% } %>
                                     </div>
                                     
                                 <% } else { %>
@@ -105,9 +110,11 @@
                                                 </button>   
                                             </form>
                                         </div>
-                                        <div class="col-6">
-                                            <button type="button" class="btn btn-primary btn-bs" data-bs-toggle="modal" data-bs-target="#reserveModal">Booking</button>
-                                        </div>       
+                                        <% if(Movies.show === 'y') { %>
+                                            <div class="col-6">
+                                                <button type="button" class="btn btn-primary btn-bs" data-bs-toggle="modal" data-bs-target="#reserveModal">Booking</button>
+                                            </div>  
+                                        <% } %>     
                                     </div>
                                     
                                 <% } %>

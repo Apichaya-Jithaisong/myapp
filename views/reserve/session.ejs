@@ -110,7 +110,7 @@
 </form>
 
 
-<form action="/session/<%= Cinemas.id %>/<%= Movies.id %>" method="POST" style="margin-top: -18px;">
+<form action="/session/<%= Cinemas.id %>/<%= Movies.id %>" method="POST" >
     <div class="container-fluid mt-3 tail-box">
         <div class="row">
             <div class="col container-fluid head-box">
@@ -130,7 +130,7 @@
 </form>
 
 
-<form action="/session/<%= Cinemas.id %>/<%= Movies.id %>" method="POST" style="margin-top: -18px;">
+<form action="/session/<%= Cinemas.id %>/<%= Movies.id %>" method="POST" >
     <div class="container-fluid mt-3 tail-box">
         <div class="row">
             <div class="col container-fluid head-box">
@@ -147,6 +147,8 @@
     <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay3">
     <input type="hidden" name="session[theater]" value="3">
 </form>
+
+&nbsp;
 
 
 <script>

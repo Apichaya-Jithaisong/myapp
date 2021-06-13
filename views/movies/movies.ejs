@@ -38,7 +38,7 @@
   <div class="container" id="cok-cok" style="width: 70%; margin-left: 13.5%; margin-top: 30px;">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="position: relative;">
       <% var i = 0; Movies.forEach(function(movie){ %>
-        <div class="col" style="width: 200px; margin: 0px auto;">
+        <div class="col" style="width: 200px; margin: 0px auto; ">
           <div class="card card-cover h-100" style="background-color: transparent; border: none; margin-top: 10px;">
             <a href="/movies/<%= movie._id %>">
               <div class="container" style="width: 220px;">
@@ -107,7 +107,7 @@
 
 <% if (sort != null) { %>
   <!------------------Soon Movies---------------------->
-  <div class="container hidden" id="cik-cik" style="width: 55%; margin-left: 20%; margin-top: 30px; ">
+  <div class="container hidden" id="cik-cik" style="width: 55%; margin-left: 20%; margin-top: 30px;">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <% ComeMovie.forEach(function(movie){ %>
           <div class="col" style="width: 200px; margin: 0px auto;">
