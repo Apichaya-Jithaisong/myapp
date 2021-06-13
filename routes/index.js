@@ -39,10 +39,11 @@ router.post('/register', function(req, res){
     }
     User.register(newUser, req.body.password, function(err, user){
         if(err){
-            console.log(err);
+            req.flash('error', err.message);
             return res.render('./index/register.ejs');
         } else {
             passport.authenticate('local')(req, res, function(){
+                req.flash('success', 'Welcome to IMove ' + user.username);
                 res.redirect('/');
             });
         }
@@ -56,12 +57,17 @@ router.get('/login', function(req, res){
 router.post('/login', passport.authenticate('local',
     {
         successRedirect: '/',
-        failureRedirect: '/login'
+        failureRedirect: '/login',
+        successFlash: true,
+        failureFlash: true,
+        successFlash: 'Successfully log in',
+        failureFlash: 'Invalid username or password',
     }), function(res, req){
 });
 
 router.get('/logout', function(req, res){
     req.logout();
+    req.flash('success', 'Bye-bye and Come back to us again');
     res.redirect('back');
 });
 

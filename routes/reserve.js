@@ -82,7 +82,7 @@ router.post('/:id', middleware.isLoggedIn, function(req, res){
                     if( req.body.C4 == 'y') {
                         reserveSeat('C4', reserve._id);
                     }
-
+                    req.flash('success', 'Reservation is successful.');
                     res.redirect('/user/' + req.user._id + '/ticket');
                     
                 }

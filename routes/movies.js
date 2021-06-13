@@ -51,7 +51,9 @@ router.post('/new', upload.single('image'),  function(req, res){
     Movies.create(req.body.movies, function(err, newMovies){
         if(err){
             console.log(err);
+            req.flash('error', 'Please check the information.');
         } else {
+            req.flash('success', 'The movie has been added.');
             res.redirect('/movies');
         }
     });
@@ -75,8 +77,10 @@ router.put('/:id', upload.single('image'), function(req, res){
     Movies.findByIdAndUpdate(req.params.id, req.body.movies, function( err, updatedMovies ){
         if(err) {
             console.log(err);
+            req.flash('error', 'Please check the information.');
             res.redirect('/movies/')
         } else {
+            req.flash('success', 'The movie has been editted.');
             res.redirect('/movies/' + req.params.id);
         }
     });
@@ -88,7 +92,9 @@ router.delete('/:id', middleware.checkAdmin, function(req, res){
     Movies.findByIdAndRemove(req.params.id, function(err){
         if(err){
             console.log(err);
+            req.flash('error', 'An error occurred.');
         } else {
+            req.flash('success', 'The cinema has been removed.');
             res.redirect('/movies');
         }
     })

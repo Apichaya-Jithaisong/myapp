@@ -28,7 +28,7 @@ app.use(flash());
 app.set('view engine', 'ejs');
 // seedDB();
 
-//Settings Passport
+
 app.use(require('express-session')({
     secret: 'secret is always secret.',
     resave: false,
@@ -42,6 +42,8 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
     next();
 });
 

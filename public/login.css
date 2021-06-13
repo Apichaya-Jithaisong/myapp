@@ -8,13 +8,14 @@ body
    font-size: 18px;
    font-family: 'Nunito', sans-serif;
    margin-bottom: 15px;
+   font-weight: bold;
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
 }
 
 .video-container video {
    position: absolute; 
-   top: 0;
+   /* top: 0; */
    left: 0;
    width: 750px;
    height: 100%;
@@ -42,6 +43,7 @@ body
    z-index: 1000;
    margin-left: 910px;
    margin-top: 8px;
+   /* background-color: #c26cfc; */
 } 
 
 #btn-singup{

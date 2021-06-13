@@ -6,7 +6,7 @@ middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
     }
-    // req.flash('error', 'You need to sign in first!');
+    req.flash('error', 'You need to login first!');
     res.redirect('/login');
 };
 
@@ -14,7 +14,7 @@ middlewareObj.checkAdmin = function(req, res, next){
     if(req.isAuthenticated()){
         User.findById(req.user._id, function(err, currentUser){
             if(err){
-                // req.flash('error', 'You can not acess this page!');
+                req.flash('error', 'You can not acess this page!');
                 res.redirect('/');
             } else {
                 if( currentUser.isAdmin == true ){
@@ -23,7 +23,7 @@ middlewareObj.checkAdmin = function(req, res, next){
             }
         });
     } else {
-        // req.flash('error', 'You need to sign in first!');
+        req.flash('error', 'You need to login first!');
         res.redirect('/');
     }
 };
@@ -38,7 +38,7 @@ middlewareObj.checkProfileOwner = function(req, res, next){
             res.redirect('/back');
         }
     } else {
-        req.flash('error', 'You need to sign in first!');
+        req.flash('error', 'You need to login first!');
         res.redirect('/login');
     }
 };

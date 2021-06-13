@@ -109,7 +109,7 @@
   <!------------------Soon Movies---------------------->
   <div class="container hidden" id="cik-cik" style="width: 55%; margin-left: 20%; margin-top: 30px;">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      <% ComeMovie.forEach(function(movie){ %>
+      <% var i = 0; ComeMovie.forEach(function(movie){ %>
           <div class="col" style="width: 200px; margin: 0px auto;">
             <div class="card card-cover h-100" style="background-color: transparent; border: none; margin-top: 10px;">
               <a href="/movies/<%= movie._id %>">
@@ -150,8 +150,8 @@
                         <button class="btn btn-outline-warning btt">Edit</button>
                       </a>
                       <form class="col" action="/movies/<%= movie._id %>?_method=DELETE" method="POST">
-                        <button type="button" class="btn btn-outline-danger btt" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
-                        <div class="modal fade" id="deleteModal<%= i %>" tabindex="-1">
+                        <button type="button" class="btn btn-outline-danger btt" data-bs-toggle="modal" data-bs-target="#deleteeModal<%= i %>">Delete</button>
+                        <div class="modal fade" id="deleteeModal<%= i %>" tabindex="-1">
                           <div class="modal-dialog">
                               <div class="modal-content">
                                   <div class="modal-header">
@@ -173,7 +173,7 @@
                 <% } %>
             </div>
           </div>
-      <%}); %>
+      <% i++; }); %>
     </div>
   </div>
   <% } %>
