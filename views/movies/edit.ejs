@@ -1,18 +1,22 @@
 <%- include('../partials/header.ejs') %>
+<!------------------------------- form information Edit/Deletc/New ------------------------------------------------>
 <div class="container">
+
     <div class="py-5 text-center">
         <h2 class="text-new">Edit Movies</h2>
         <p class="lead">Please fill out the information completeily.</p>
     </div>
+
     <div class="col-12">
         <form action="/movies/<%= Movies._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-            <div class="container-fluid" style="height: 100%; width: 60% auto; margin-top: -55px;">
+            <div class="container-fluid frame-xx">
                 <div class="container-fluid mt-5 mb-5" style="width: 450px;">
                     
                     <div class="col-12">
                         <h5 class="text-name">Name</h5>
                         <input type="text" class="form-control bg-input" required="required" name="movies[name]" placeholder="Ex. Seobok" value="<%= Movies.name %>">
                     </div>
+
                     <h5 class="col-12 mb-3 mt-4 text-name">Description</h5>
                     <div class="col-12 mb-4 mx-2">
                         <div class="col-12 mb-3">
@@ -42,17 +46,20 @@
                     </div>
         
                     <h5 class="col-12 mb-3 text-name">Media</h5>
-                    <div class="col-12 mb-5 mx-2">       
+                    <div class="col-12 mb-5 mx-2">
+
                         <div class="col-12 mb-3">
                             <img src="<%= Movies.image %>" height="100%" style="max-height: 150px;">
                             <label class="form-label fon-t" style="margin-left: 5px;">Poster
                                 <input type="file" class="form-control bg-inputcolor" name="image" accept="image/*" style="width: 300px;">
                             </label>
                         </div>
+
                         <div class="col-12 mb-3">
                             <label class="form-label fon-t">Trailer</label>
                             <input type="url" class="form-control bg-inputcolor" name="movies[trailer]" required="required" placeholder="Ex. www.youtube.com/embed/...." value="<%= Movies.trailer %>">
                         </div>
+                        
                         <button class="btn btn-primary btn-submit" type="button" data-bs-toggle="modal" data-bs-target="#editModal">Submit</button>
                         <div class="modal fade" id="editModal" tabindex="-1">
                             <div class="modal-dialog">
@@ -71,6 +78,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>     
                 </div>
             </div>
@@ -78,7 +86,7 @@
     </div>
     
 </div>
-
+<!------------------------------- form information Edit/Deletc/New ------------------------------------------------>
 
 
 <%- include('../partials/footer.ejs') %>

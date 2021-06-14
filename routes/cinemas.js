@@ -70,7 +70,7 @@ router.get('/:id', function(req,res){
     });
 });
 
-//  Edit
+
 router.get('/:id/edit', middleware.checkAdmin,  function(req, res){
     Cinemas.findById(req.params.id, function( err, foundCinemas ){
         if(err) {
@@ -105,9 +105,8 @@ router.put('/:id', upload.fields([{ name: 'image' }, { name: 'image2' }, { name:
         }
     });
 });
-//  End of Edit
 
-//  Delete
+
 router.delete('/:id', middleware.checkAdmin, function(req, res){
     Cinemas.findByIdAndRemove(req.params.id, function(err){
         if(err){
@@ -119,16 +118,6 @@ router.delete('/:id', middleware.checkAdmin, function(req, res){
         }
     })
 });
-//  End of delete
 
-// router.get('/:id', function(req,res){
-//     Movies.findById(req.params.id).populate('comments').exec(function(err, foundMovies){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             res.render('./movies/show.ejs', {Movies: foundMovies});
-//         }
-//     });
-// });
 
 module.exports = router;

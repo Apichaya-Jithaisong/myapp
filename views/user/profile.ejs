@@ -5,39 +5,41 @@
 </div>
 
 <form action="/user/<%= User._id %>" method="POST" enctype="multipart/form-data" style="overflow: hidden;">
-    <div class="container-fluid px-3 pt-3 pic-box" style="margin-left: 11px;">   
-        <div class="center row cen-box" style="width: 700px;">
-            <div class="col-md-6 pic-si">
-                <img class="mx-3" src="<%= User.profileImage %>"  height="200px" width="200px">
-            </div>
+  <div class="container-fluid px-3 pt-3 pic-box lo-lo" >   
+    <div class="center row cen-box" style="width: 700px;">
+
+      <div class="col-md-6 pic-si">
+        <img class="mx-3" src="<%= User.profileImage %>"  height="200px" width="200px">
+      </div>
             
-            <div class="col-md-6 sen-sto" style="margin-left: 29px; margin-top: 13px;">
-                <h2 class="pro-tt"> Username : 
-                    <h2 class="pro-aa"><%= User.username %></h2>
-                </h2>
-                <div style="height: 8px;"></div>
-                <h2 class="pro-tt"> E-mail : 
-                    <h2 class="pro-aa" ><%= User.email %></h2>
-                </h2>
-                <div style="height: 10px;"></div>
-                <input type="file" class="form-control mt-3" name="image" accept="image/*" style="width: 255px;">
-            <button class="btn btn-pro" type="submit">Submit</button>
-            </div>
-        </div>
+      <div class="col-md-6 sen-sto" style="margin-left: 29px; margin-top: 13px;">
+        <h2 class="pro-tt"> Username : 
+          <h2 class="pro-aa"><%= User.username %></h2>
+        </h2>
+        <div style="height: 8px;"></div>
+        <h2 class="pro-tt"> E-mail : 
+          <h2 class="pro-aa" ><%= User.email %></h2>
+        </h2>
+        <div style="height: 10px;"></div>
+        <input type="file" class="form-control mt-3" name="image" accept="image/*" style="width: 255px;">
+        <button class="btn btn-pro" type="submit">Submit</button>
+      </div>
+
     </div>
+  </div>
 </form>
 
 
 <div class="container d-flex flex-row px-3 pt-3" style="background-color: rgba(0, 0, 0, 0.363);">
     &emsp; <h2 class="text-fa">Like List</h2>
-
 </div>
+
 <br>
 
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="position: relative; width: 75%; left: 12%;">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 pr-il">
     <% Movies.likes.forEach(function(liked){ %>
-      <div class="col" style="width: 200px; margin: 0px auto;">
-        <div class="card card-cover h-100" style="background-color: transparent; border: none; margin-top: 10px;">
+      <div class="col wi-ss">
+        <div class="card card-cover h-100 bx-laa">
           <a href="/movies/<%= liked.movies.id %>">
             <div class="container" style="width: 220px;">
               <img src="<%= liked.movies.image %>" width="100%" height="250px" style="object-fit: cover;">

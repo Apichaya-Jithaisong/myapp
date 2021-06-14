@@ -529,6 +529,10 @@ div.scrollmenu {
     overflow: hidden;
 }
 
+.lo-lo{
+    margin-left: 11px;
+}
+
 .cen-box{
     height: 250px; 
     width: 600px;
@@ -835,4 +839,69 @@ div.scrollmenu {
 .abc:focus{
     box-shadow: none;
 }
+/*-----------------------------------End-----------------------------------*/
+/*------------------------------- From ---------------------------------*/
+.frame-xx{
+    height: 100%; 
+    width: 60% auto; 
+    margin-top: -55px;
+}
+/*------------------------------- End ---------------------------------*/
 
+.pic-view{
+    background: transparent; 
+    height: 200px;  
+    width: 400px; 
+    overflow: hidden;
+}
+
+.bx-lon{
+    width: 70%; 
+    margin-left: 13.5%; 
+    margin-top: 30px;
+}
+
+.bx-lnn{
+    width: 200px; 
+    margin: 0px auto;
+}
+
+.bx-laa{
+    background-color: transparent; 
+    border: none; 
+    margin-top: 10px;
+}
+
+.maja{
+    margin-top: 10px; 
+    height: 80px; 
+    display: flex;
+}
+
+.bx-tain{
+    width: 55%; 
+    margin-left: 20%; 
+    margin-top: 30px;
+}
+
+.wi-ss{
+    width: 200px; 
+    margin: 0px auto;
+}
+
+.bx-cok{
+    width: 70%; 
+    margin-left: 13.5%; 
+    margin-top: 30px;
+}
+
+.pr-il{
+    position: relative; 
+    width: 75%; 
+    left: 12%;
+}
+
+.lm-k{
+    margin-left: 20px; 
+    margin-top: 10px;
+}

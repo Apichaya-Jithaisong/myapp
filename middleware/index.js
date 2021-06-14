@@ -14,7 +14,7 @@ middlewareObj.checkAdmin = function(req, res, next){
     if(req.isAuthenticated()){
         User.findById(req.user._id, function(err, currentUser){
             if(err){
-                req.flash('error', 'You can not acess this page!');
+                req.flash('error', 'You dont have permission to access this page.');
                 res.redirect('/');
             } else {
                 if( currentUser.isAdmin == true ){
@@ -34,7 +34,7 @@ middlewareObj.checkProfileOwner = function(req, res, next){
             return next();
         }
         else {
-            req.flash('error', 'You are not the profile owner!');
+            req.flash('error', 'That is not your profile!');
             res.redirect('/back');
         }
     } else {

@@ -35,34 +35,34 @@
     <h5 class="heard">
         <%= Movies.name %>
     </h5>
+
     <div class="album py-5">
         <div class="container" style=" height:auto;">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 g-1" style="height: 240px;">
 
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-1 g-1" style="height: 240px;">
                 <div class="col" style="margin: 0 auto; margin-top: -3%;">
                     <iframe src="<%= Movies.trailer %>" title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen style="height: 14rem; width: 26rem; margin-left: 34%;">
                     </iframe>
-                    <h5 class="fff">Director: <%= Movies.director %> &nbsp; &nbsp;| &nbsp; <ion-icon
-                                name="time-outline"></ion-icon>: <%= Movies.runtime %> &nbsp; &nbsp;| &nbsp; IMDB: <%=
-                                    Movies.score %>
-                    </h5>
+                    <h5 class="fff">Director: <%= Movies.director %> &nbsp; &nbsp;| &nbsp; <ion-icon name="time-outline"></ion-icon>: <%= Movies.runtime %> &nbsp; &nbsp;| &nbsp; IMDB: <%= Movies.score %> </h5>
                 </div>
-
             </div>
+
             <div class="row mb-12">
                 <div class="col-md-12">
-                    <div
-                        class="row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative frame-desc">
+                    <div class="row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative frame-desc">
+
                         <div class="col-auto d-none d-lg-block" style="margin-left: 30%;">
                             <img class="col" src="<%= Movies.image %>" height="290px">
                         </div>
 
                         <div class="col p-4 d-flex flex-column position-static">
+
                             <p class="card-text mb-auto text-d" style="width: 300px;">
                                 <%= Movies.desc %>
                             </p>
+
                             <% if(!currentUser) { %>
                                 <div class="row siz-heartandbtn" >
                                     <div class="col-6">
@@ -122,10 +122,12 @@
                                     <div class="modal fade" id="reserveModal" tabindex="-1">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
+
                                                 <div class="modal-header" style="height: 90px;">
                                                     <h5 class="modal-title font-boo" >Booking <%= Movies.name %></h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                 </div>
+
                                                 <div class="modal-body">
                                                     <div class="row px-3" style="width: 100%;">
                                                         <% Cinemas.forEach(function(cinema){ %>
@@ -143,6 +145,7 @@
                                                         <% }); %>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -252,4 +255,4 @@
         </div>
 
 
-        <%- include('../partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>

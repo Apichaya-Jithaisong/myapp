@@ -1,5 +1,6 @@
 <%- include('../partials/header.ejs') %>
 
+<!------------------------------------------ ค้นหาและแยกประเภทหนัง --------------------------------------------------------->
 <% if (sort != null) { %>
   <div class="container-fluid bg-image">
     <div id="headerMovie">
@@ -33,23 +34,30 @@
     </div>
   </div>
 <% } %>
+<!------------------------------------------ ค้นหาและแยกประเภทหนัง --------------------------------------------------------->
 
-  <!------------------Movies---------------------->
-  <div class="container" id="cok-cok" style="width: 70%; margin-left: 13.5%; margin-top: 30px;">
+
+  <!---------------------------------------------Movies like list----------------------------------------------------->
+  <div class="container bx-cok" id="cok-cok" >
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="position: relative;">
+
       <% var i = 0; Movies.forEach(function(movie){ %>
-        <div class="col" style="width: 200px; margin: 0px auto; ">
-          <div class="card card-cover h-100" style="background-color: transparent; border: none; margin-top: 10px;">
+        <div class="col wi-ss">
+          <div class="card card-cover h-100 bx-laa">
+
             <a href="/movies/<%= movie._id %>">
               <div class="container" style="width: 220px;">
+
                 <img src="<%= movie.image %>" width="100%" height="250px" style="object-fit: cover;">
                 <div class="container black">
                   <p class="lh-1 pt-2 text-shadow-1">
                     <%= movie.name %>
                   </p>
                 </div>
+
               </div>
             </a>
+
             <% if(!currentUser) {%>
               <form action="/login">
                 <button type="submit" class="po-heart">
@@ -106,12 +114,14 @@
   </div>
 
 <% if (sort != null) { %>
-  <!------------------Soon Movies---------------------->
-  <div class="container hidden" id="cik-cik" style="width: 55%; margin-left: 20%; margin-top: 30px;">
+  <!----------------------------------------Soon Movies---------------------------------------------------->
+  <div class="container bx-tain hidden" id="cik-cik">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
       <% var i = 0; ComeMovie.forEach(function(movie){ %>
-          <div class="col" style="width: 200px; margin: 0px auto;">
-            <div class="card card-cover h-100" style="background-color: transparent; border: none; margin-top: 10px;">
+          <div class="col wi-ss">
+            <div class="card card-cover h-100 bx-laa">
+
               <a href="/movies/<%= movie._id %>">
                 <div class="container" style="width: 220px;">
                   <img src="<%= movie.image %>" width="100%" height="250px" style="object-fit: cover;">
@@ -122,6 +132,7 @@
                   </div>
                 </div>
               </a>
+              
               <% if(!currentUser) {%>
                 <form action="/login">
                   <button type="submit" class="po-heart">

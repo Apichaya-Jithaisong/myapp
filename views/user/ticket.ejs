@@ -1,13 +1,16 @@
 <%- include('../partials/header.ejs') %>
-    <div class="container-fluid px-3 pt-4">
-        <h1 class="box" style="margin-left: 20px; margin-top: 10px;">
-            <img src="https://media.discordapp.net/attachments/718002735475064874/845974386439356466/image0.jpg?width=101&height=669"
-                height="35px" width="10px" style="margin-bottom: 7px;">
-            Movie ticket
-        </h1>
-    </div>
+
+<div class="container-fluid px-3 pt-4">
+    <h1 class="box lm-k" >
+        <img src="https://media.discordapp.net/attachments/718002735475064874/845974386439356466/image0.jpg?width=101&height=669"
+        height="35px" width="10px" style="margin-bottom: 7px;">
+        Movie ticket
+    </h1>
+</div>
     
-<div class="container-fluid row mt-3"  style="height: 205px;">
+<!-- เรียงให้ตั๋วจองอยู่บนสุดแล้ว -->
+
+<div class="container-fluid row mt-3" style="height: 205px;">
 <% Reserve.forEach(function(thisReserve){ %>
     <div class="row col-4 mx-3 card card-cover rounded-5 shadow-lg h-100 bg-www" >
         <div class="col-6" style="margin-left: -25px;">
@@ -28,4 +31,4 @@
 
 
 
-    <%- include('../partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>

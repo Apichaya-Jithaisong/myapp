@@ -1,5 +1,5 @@
 <%- include('../partials/header.ejs') %>
-
+<!----------------------------- หัวข้อ เลือกที่นั่ง ------------------------------------------->
 <div class="container-fluid px-3 pt-2 nam-box">
     <h1 class="box place-box">
       <img
@@ -8,15 +8,18 @@
       Select Seat
     </h1>
 </div>
+<!----------------------------- หัวข้อ เลือกที่นั่ง ------------------------------------------->
 
-
+<!----------------------------- ที่นั่ง สรุปการจอง รายละเอียดการจอง ------------------------------------------->
 <form action="/reserve/<%= Session._id %>" method="POST">
     <div class="container-fluid px-3 pt-3 pic-box">   
         <div class="center row cen-box">
+            <!-- รูป -->
             <div class="col-md-6 pic-si">
                 <img class="mx-3" src="<%= Movies.image %>"  height="220px">
             </div>
             
+            <!-- รายละเอียดการจอง -->
             <div class="col-md-6 des-sele">
                 <h4 class="desc"><%= Movies.name %></h4>
                 <p class="desc dec-oo">
@@ -43,12 +46,16 @@
             </div>
         </div>
     </div>
+
+    <!-- ที่นั่ง แผนผังที่นั่ง หน้าจอ -->
     <div class="container-fluid px-3" style="height: 100%; background-color: rgba(0, 0, 0, 0.514); overflow: hidden;">
         <div class="row">
             
+            <!-- หน้าจอ -->
             <div class="col mt-5 mb-5 mx-5 seat-block" style="position: relative;">               
                 <p class="scre-bo center" style="top: 0;">SCREEN</p>
-                    
+                
+                <!-- ที่นั่งแถว A1 A2 A3 A4-->
                 <div class="center" style="margin-top: 20px;">
                     <div class="row mb-3">
                         <div class="col-3">
@@ -93,6 +100,7 @@
                         </div>
                     </div>
 
+                    <!-- ที่นั่งแถว B1 B2 B3 B4-->
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-3">
                             <% if ( Session.seats.includes('B1') ) { %>
@@ -136,6 +144,7 @@
                         </div>   
                     </div>
 
+                    <!-- ที่นั่งแถว C1 C2 C3 C4-->
                     <div class="row" style="margin-top: 20px;">
                         <div class="col-3">
                             <% if ( Session.seats.includes('C1') ) { %>
@@ -183,6 +192,7 @@
                 
             </div>
             
+            <!-- สรุปการจอง -->
             <div class="row col-4 pt-3" style="width: 25%; padding-right: 50px;">
                 <h1 id="summ" class="justify-content-between align-items-center mb-3">Reservation Summary</h1>
                 <h1 class="seat-thb">Reserved seats : 
@@ -216,8 +226,6 @@
  
         </div>
 
-        <!-- <div style="height: 50px;"></div>   -->
-
     </div>
     <input type="hidden" name="reserve[date]" value="<%= Session.date %>">
     <input type="hidden" name="reserve[time]" value="<%= Session.time %>">
@@ -227,7 +235,7 @@
     <input type="hidden" name="reserve[cinemaName]" value="<%= Cinemas.name %>">
     <input type="hidden" name="reserve[cinemaImage]" value="<%= Cinemas.logo %>">
 </form>
-<!-- End of Reservation Form -->
+<!----------------------------- ที่นั่ง สรุปการจอง รายละเอียดการจอง ------------------------------------------->
 
 <script>
     var price = 0; seat = 0;

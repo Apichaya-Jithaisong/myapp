@@ -59,7 +59,7 @@ router.post('/new', upload.single('image'),  function(req, res){
     });
 });
 
-//  Edit
+
 router.get('/:id/edit', middleware.checkAdmin,  function(req, res){
     Movies.findById(req.params.id, function( err, foundMovies ){
         if(err) {
@@ -85,9 +85,9 @@ router.put('/:id', upload.single('image'), function(req, res){
         }
     });
 });
-//  End of Edit
 
-//  Delete
+
+
 router.delete('/:id', middleware.checkAdmin, function(req, res){
     Movies.findByIdAndRemove(req.params.id, function(err){
         if(err){
@@ -99,7 +99,7 @@ router.delete('/:id', middleware.checkAdmin, function(req, res){
         }
     })
 });
-//  End of delete
+
 
 router.get('/:id', function(req,res){
     Movies.findById(req.params.id).populate('comments').exec(function(err, foundMovies){
@@ -132,18 +132,6 @@ router.get('/search/:name', function(req,res){
     });
 });
 
-// router.post('/', function(req,res){
-//     if ( req.body.genre == 'All-movie' ) {
-//         res.redirect('back');
-//         }
-//     Movies.find({genre: new RegExp(req.body.genre, 'i'), show: 'y'}, function(err, foundMovies){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             res.render('./movies/movies.ejs', {Movies: foundMovies});
-//         }
-//     });
-// });
 
 router.get('/genre/:genre', function(req, res){
     Movies.find({genre: new RegExp(req.params.genre, 'i'), show: "y"}, function(err, foundMovie){

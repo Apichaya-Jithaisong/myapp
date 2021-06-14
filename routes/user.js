@@ -65,7 +65,7 @@ router.get('/:id/ticket', middleware.checkProfileOwner, function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            Reserve.find({'user.id': req.params.id}).exec(function(err, foundReserve){
+            Reserve.find({'user.id': req.params.id}).sort({boughtTime: -1}).exec(function(err, foundReserve){
                 if (err) {
                     console.log(err);
                 } else {

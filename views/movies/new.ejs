@@ -1,18 +1,22 @@
 <%- include('../partials/header.ejs') %>
+<!------------------------------- form information Edit/Deletc/New ------------------------------------------------>
 <div class="container">
+
     <div class="py-5 text-center">
         <h2 class="text-new">New Movies</h2>
         <p class="lead">Please fill out the information completeily.</p>
     </div>
+
     <div class="col-12">
         <form action="/movies/new" method="POST" enctype="multipart/form-data">
-            <div class="container-fluid" style="height: 100%; width: 60% auto; margin-top: -55px;">
+            <div class="container-fluid frame-xx">
                 <div class="container-fluid mt-5 mb-5" style="width: 450px;">
                     
                     <div class="col-12">
                         <h5 class="text-name">Name</h5>
                         <input type="text" class="form-control bg-input" required="required" name="movies[name]" placeholder="Ex. Seobok">
                     </div>
+
                     <h5 class="col-12 mb-3 mt-4 text-name">Description</h5>
                     <div class="col-12 mb-4 mx-2">
                         <div class="col-12 mb-3">
@@ -61,6 +65,6 @@
     
 </div>
 
-
+<!------------------------------- form information Edit/Deletc/New ------------------------------------------------>
 
 <%- include('../partials/footer.ejs') %>

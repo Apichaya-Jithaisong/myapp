@@ -1,5 +1,5 @@
 <%- include('../partials/header.ejs') %>
-  <!-- ads -->
+  <!------------------------------ ads -------------------------------------------->
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -25,9 +25,9 @@
     </div>
   </div>
   </div>
-  <!--------------------------------End------------------------------------------->
+  <!----------------------------------End------------------------------------------->
   
-  <!-- Box Office -->
+  <!------------------------------ Box Office ---------------------------------------->
   <div class="container-fluid px-3 pt-4">
     <h1 class="box" style="margin-left: 20px; margin-top: 10px;">
       <img
@@ -37,12 +37,15 @@
     </h1>
   </div>
   <!--------------------------------End------------------------------------------->
-  <!-- Rank movie -->
+
+
+  <!------------------------------- Rank movie ----------------------------------->
   <div class="container-fluid">
     <div class="row row-cols-3 align-items-stretch justify-content-center py-2 mx-3">
       <% var i=1; Ranks.forEach(function(movie){ %>
+
         <div class="col mx-4" style="width: 200px;">
-          <div class="card card-cover h-100" style="background-color: transparent; border: none; margin-top: 10px;">
+          <div class="card card-cover h-100 bx-laa">
             <a href="/movies/<%= movie._id %>">
               <h1 class="num" style="font-family: 'Montserrat', sans-serif;">
                 <%= i %>
@@ -57,12 +60,15 @@
           </div>
         </div>
         </a>
+
         <% i++; }); %>
     </div>
   </div>
   </div>
-  <!--------------------------------End------------------------------------------->
-  <!----------All movie and Category------------->
+  <!------------------------------------End------------------------------------------->
+
+
+  <!---------------------------------All movie and Category--------------------------->
   <hr width="90%" style="color: white; margin: 0% auto; margin-top: 10px;">
   <div class="container-fluid px-3 pt-4" style=" margin-top: 10px; height: 80px; display: flex;">
     <h1 class="box" style="margin-left: 20px;">
@@ -95,9 +101,11 @@
     </div>
   </div>
   <!--------------------------------End------------------------------------------->
-  <!----------------Coming Soon------------------>
+
+  <!--------------------------------Coming Soon----------------------------------->
   <hr width="90%" style="color: white; margin: 0% auto; margin-top: 30px;">
-  <div class="container-fluid px-3 pt-4" style=" margin-top: 10px; height: 80px; display: flex;">
+
+  <div class="container-fluid px-3 pt-4 maja" >
     <h1 class="box" style="margin-left: 20px;">
       <img
         src="https://media.discordapp.net/attachments/718002735475064874/845974386439356466/image0.jpg?width=101&height=669"
@@ -107,11 +115,12 @@
     <ion-icon name="chevron-forward-outline" style="color: #fff; font-size: 40px; margin-top: 4px;"></ion-icon>
   </div>
 
-  <div class="container" style="width: 55%; margin-left: 20%; margin-top: 30px; ">
+  <div class="container bx-tain" >
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <% ComeMovies.forEach(function(movie){ %>
-        <div class="col" style="width: 200px; margin: 0px auto;">
-          <div class="card card-cover h-100" style="background-color: transparent; border: none; margin-top: 10px;">
+
+        <div class="col wi-ss" >
+          <div class="card card-cover h-100 bx-laa">
             <a href="/movies/<%= movie._id %>">
               <div class="container" style="width: 220px;">
                 <img src="<%= movie.image %>" width="100%" height="250px" style="object-fit: cover;">
@@ -119,18 +128,13 @@
                   <p class="lh-1 pt-2 text-shadow-1">
                     <%= movie.name %>
                   </p>
-                  <!-- <div class="d-flex justify-content-between align-items-center">
-                              <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                              </div>
-                            </div> -->
                 </div>
               </div>
             </a>
           </div>
         </div>
-        <%}); %>
+
+      <%}); %>
     </div>
   </div>
   &nbsp;

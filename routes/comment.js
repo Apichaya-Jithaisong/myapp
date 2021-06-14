@@ -28,7 +28,7 @@ router.post('/', middleware.isLoggedIn, function(req, res){
     });
 });
 
-// Edit
+
 router.put('/:comid', function(req, res){
     Comment.findByIdAndUpdate(req.params.comid, req.body.comment, function( err, updatedComment ){
         if(err) {
@@ -40,7 +40,7 @@ router.put('/:comid', function(req, res){
         }
     });
 });
-//  End of Edit
+
 
 router.delete('/:comid', function(req, res){
     Comment.findByIdAndRemove(req.params.comid, function(err){

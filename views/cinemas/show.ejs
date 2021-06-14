@@ -1,66 +1,70 @@
 <%- include('../partials/header.ejs') %>
-
+<!------------------------------------------------- ชื่อโรงหนัง ------------------------------------------------>
 <div class="py-5 text-center">
   <h2 class="text-showcin"><%= Cinemas.name %></h2>
   <p class="lead"><%= Cinemas.desc %></p>
 </div>
+<!------------------------------------------------- ชื่อโรงหนัง ------------------------------------------------>
 
+
+<!------------------------------------------------- รูปภายใน ------------------------------------------------->
 <div class="album py-5" style="margin-top: -60px;">
   <div class="container" style="overflow: hidden;">
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       <div class="col">
-        <div class="card shadow-sm" style="background: transparent; height: 200px;  width: 400px; overflow: hidden;">
+        <div class="card shadow-sm pic-view" >
           <img src="<%= Cinemas.image2 %>" >
         </div>
       </div>
       <div class="col">
-        <div class="card shadow-sm" style="background: transparent; height: 200px;  width: 400px; overflow: hidden;">
+        <div class="card shadow-sm pic-view" >
           <img src="<%= Cinemas.image3 %>"  > 
         </div>
       </div>
       <div class="col">
-        <div class="card shadow-sm" style="background: transparent; height: 200px;  width: 400px; overflow: hidden;">
+        <div class="card shadow-sm pic-view" >
           <img src="<%= Cinemas.image4 %>"  >
         </div>
       </div>
     </div>
   </div>
 </div>
+<!------------------------------------------------- รูปภายใน ------------------------------------------------->
 
-
-<!-- <div class="container-fluid bg-dark px-3 pt-4" style="height: 75px;">
-    <h5 style="color: white; text-transform: uppercase;">
-        &emsp;
-      Now showing
-    </h5>
-</div> -->
+<!------------------------------------------------- หนังแต่ละสาขา ------------------------------------------------->
 <div class="py-5 boxx-cendown" style="background-color: rgba(0, 0, 0, 0.5);">
   <h2>NOW SHOWING</h2>
   <br>
   <br>
-  <div class="container" style="width: 70%; margin-left: 13.5%; margin-top: 30px;">
+  <div class="container bx-lon" >
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" style="position: relative;">
+
       <% Movies.forEach(function(movie){ %>
-        <div class="col" style="width: 200px; margin: 0px auto;">
-          <div class="card card-cover h-100" style="background-color: transparent; border: none; margin-top: 10px;">
+        <div class="col bx-lnn" >
+          <div class="card card-cover h-100 bx-laa" >
+
             <a href="/session/<%= Cinemas._id %>/<%= movie._id %>">
               <div class="container" style="width: 220px;">
+
                 <img src="<%= movie.image %>" width="100%" height="250px" style="object-fit: cover;">
                 <div class="container black">
                   <p class="lh-1 pt-2 text-shadow-1">
                     <%= movie.name %>
                   </p>
                 </div>
+                
               </div>
             </a>
+
           </div>
         </div>
       <%}); %>
+
     </div>
   </div>
 </div>
-
+<!------------------------------------------------- หนังแต่ละสาขา ------------------------------------------------->
 
 
 
